@@ -1,0 +1,15 @@
+- item = Item.find(locals[:item].item_id)
+- booking = locals[:item].booking
+
+.card.p-5.mt-5
+  .card-body
+    h1.title = item.name
+    - item.variants.each do |variant|
+      - found_variant = booking.additional_variants.find_by(variant_id: variant.id)
+      - found_variant = found_variant.nil? ? AdditionalVariant.new : found_variant
+      = locals[:form].fields_for :additional_variants, found_variant do |vf|
+        .field.is-space-between
+          = variant.name
+          = vf.label :quantity
+          = vf.number_field :quantity, 'data-quantity-modal': 'quantity', class: "special_input"
+          = vf.hidden_field :variant_id, value: variant.id

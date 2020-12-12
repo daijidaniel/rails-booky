@@ -1,0 +1,38 @@
+.datetimepicker .datepicker-nav {
+  background: map-get($booking, 'purple-100') !important;
+}
+
+.datetimepicker-dummy::before, .datetimepicker-dummy:before {
+  background-color: map-get($booking, 'purple-100') !important;
+}
+
+.datetimepicker-dummy .datetimepicker-clear-button {
+  color: map-get($booking, 'purple-100') !important;
+}
+
+.datetimepicker-selection-day {
+  color: map-get($booking, 'purple-100') !important;
+}
+
+.datetimepicker .datepicker-body .datepicker-dates .datepicker-days .datepicker-date .date-item.is-active:hover {
+  border-color: map-get($booking, 'purple-100') !important;
+}
+
+.datetimepicker .datepicker-body .datepicker-dates .datepicker-days .datepicker-date .date-item.is-active {
+  background: map-get($booking, 'purple-100') !important;
+  border-color: map-get($booking, 'purple-100') !important;
+}
+
+.datetimepicker .datepicker-body .datepicker-dates .datepicker-days .datepicker-date.datepicker-range {
+  background: map-get($booking, 'purple-100') !important;
+}
+
+.datetimepicker .datepicker-body .datepicker-dates .datepicker-days .datepicker-date.datepicker-range .date-item {
+  background-color: map-get($booking, 'purple-100') !important;
+}
+
+.datetimepicker .datepicker-body .datepicker-dates .datepicker-days .datepicker-date.datepicker-range.datepicker-range-end .date-item, .datetimepicker .datepicker-body .datepicker-dates .datepicker-days .datepicker-date.datepicker-range.datepicker-range-start .date-item {
+  color: map-get($booking, 'purple-100') !important;
+  background: white !important;
+  border: 0.1rem solid $booking-gray !important;
+}

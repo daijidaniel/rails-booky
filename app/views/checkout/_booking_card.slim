@@ -1,0 +1,59 @@
+- i18n_scope = "checkout/index"
+- booking = locals[:booking]
+- unit = booking.units.first
+
+.card.mb-5
+  .booking__info
+    .booking__info-image
+      = image_tag url_for unit.images.first
+    .booking__info-content style="flex-grow: 3;"
+      = link_to booking_path(id: booking.id), method: :delete, class: "is-danger", style: "float: right" do
+        span
+          svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg"
+            path d="M11.0001 21C6.95361 21.0024 3.30455 18.5659 1.75572 14.8276C0.206894 11.0893 1.0636 6.78606 3.92606 3.92598C6.45335 1.39868 10.137 0.411662 13.5893 1.33672C17.0417 2.26177 19.7383 4.95836 20.6633 8.41072C21.5884 11.8631 20.6014 15.5467 18.0741 18.074C16.2015 19.955 13.6542 21.0086 11.0001 21ZM3.00006 11.172C3.04737 15.5732 6.64116 19.1095 11.0426 19.086C15.444 19.0622 18.9996 15.4875 18.9996 11.086C18.9996 6.68449 15.444 3.10975 11.0426 3.08598C6.64116 3.06244 3.04737 6.59874 3.00006 11V11.172ZM8.40906 15L7.00006 13.59L9.59006 11L7.00006 8.40998L8.41006 6.99998L11.0001 9.58998L13.5901 6.99998L15.0001 8.40998L12.4101 11L15.0001 13.59L13.5911 15L11.0001 12.41L8.41006 15H8.40906Z" fill="#ee2844"
+      h1.title = unit.name
+      h2.subtitle.is-purple 
+        = t("subtotal", scope: i18n_scope).html_safe
+        span.is-gray = humanized_money_with_symbol booking.price
+      .columns
+        .column
+          b.is-purple = t "dates_chosen", scope: i18n_scope
+          .card.p-3
+            .dates__chosen
+              .dates__chosen-checkin
+                b = t "check_in", scope: i18n_scope
+                p = booking.start_date.strftime("%m/%d/%Y")
+              .vertical_hr
+              .dates__chosen-checkout
+                b = t "check_out", scope: i18n_scope
+                p = booking.end_date.strftime("%m/%d/%Y")
+        .column
+          b.is-purple = t "guests", scope: i18n_scope
+          .card.p-3
+            .guests__added
+              .guests__added-number
+                div
+                  b = t 'adults', scope: i18n_scope
+                  p style="font-size: 10pt" = t 'adult_info', scope: i18n_scope
+                p = booking.adult_capacity
+              - if booking.child_capacity > 0
+                hr.less-padding
+                .guests__added-number
+                  div
+                    b = t 'children', scope: i18n_scope
+                    p style="font-size: 10pt" = t 'children_info', scope: i18n_scope
+                  p = booking.child_capacity
+      .booking__info-additems
+        span.info
+          b.is-purple = t 'additional_items', scope: i18n_scope
+          p = t 'additional_item_details', scope: i18n_scope
+
+        span.add-button
+          svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg"
+            path d="M21 38.5C11.335 38.5 3.5 30.665 3.5 21C3.5 11.335 11.335 3.5 21 3.5C30.665 3.5 38.5 11.335 38.5 21C38.4894 30.6606 30.6606 38.4894 21 38.5ZM7 21.301C7.0828 29.0032 13.3719 35.1917 21.0744 35.1505C28.7769 35.1089 34.9992 28.8531 34.9992 21.1505C34.9992 13.4479 28.7769 7.1921 21.0744 7.1505C13.3719 7.1093 7.0828 13.2978 7 21V21.301ZM22.75 29.75H19.25V22.75H12.25V19.25H19.25V12.25H22.75V19.25H29.75V22.75H22.75V29.75Z" fill="#484848"
+
+      
+
+
+
+

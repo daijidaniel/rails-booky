@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+  <head>
+    <title>BookingApp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, class: "notification #{notification_class name}" do %>
+        <%= content_tag :button, "", class: "delete" %>
+        <%= msg %>
+      <% end %>
+    <% end %>
+    <% if user_signed_in? %>
+      <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "button is-danger", style: "float: right") %>
+    <% else %>
+      <%= link_to('Login', new_user_session_path, class: "button is-primary", style: "float: right") %>
+
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
+

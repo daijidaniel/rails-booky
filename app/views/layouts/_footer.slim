@@ -1,0 +1,23 @@
+- i18n_scope = "footer"
+
+footer.p-5
+  .container
+    .columns
+      .column
+        h3.title = t "follow", scope: i18n_scope
+        = image_tag "icons/ig_logo", class: "mr-5"
+        = image_tag "icons/fb_logo"
+      .column
+        h3.title = t "help_center", scope: i18n_scope
+        ul.content.footer__links
+          li = link_to t('contact', scope: i18n_scope), "", class: "footer__link"
+          li = link_to t('tos', scope: i18n_scope), "", class: "footer__link"
+          li = link_to t('privacy', scope: i18n_scope), "", class: "footer__link"
+          li = link_to t('my_account', scope: i18n_scope), "", class: "footer__link"
+          li = link_to t('faq', scope: i18n_scope), "", class: "footer__link"
+          li = link_to t('cancel', scope: i18n_scope), "", class: "footer__link"
+    hr.is-gray
+      p.is-centered-middle
+        | Designed and developed by &nbsp;
+        = image_tag "icons/jalapp_logo"
+

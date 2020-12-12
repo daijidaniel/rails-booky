@@ -1,0 +1,137 @@
+@import "bulma-calendar/dist/css/bulma-calendar.min.css";
+
+.unit__page {
+  padding-top: 50px;
+}
+
+.unit__page {
+  &-mobimages {
+    scroll-snap-type: x mandatory;
+    overflow-x: scroll;
+    display: flex !important;
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+    max-height: 400px;
+    img {
+      scroll-snap-align: center;
+    }
+  }
+  &-images {
+    .container {
+      border-radius: 40px;
+      overflow: hidden;
+      // background: green;
+    }
+  }
+  &-information {
+    &-points {
+      display: flex;
+      justify-content: start;
+
+      ul li {
+        display: flex;
+        margin-top: 2rem;
+        align-items: center;
+        .info {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+        }
+      }
+    }
+  }
+}
+
+
+.guestpicker {
+  transition: all 500ms;
+
+  &-visible {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+  }
+  &-hidden {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.update__buttons {
+  -webkit-box-pack: center !important;
+  -webkit-box-align: center !important;
+  -webkit-box-flex: 0 !important;
+  width: 32px !important;
+  height: 32px !important;
+  flex-grow: 0 !important;
+  flex-shrink: 0 !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  margin: 0px !important;
+  padding: 0px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-color: rgb(176, 176, 176);
+  color: rgb(113, 113, 113);
+  font-family: inherit !important;
+  outline: none !important;
+  touch-action: manipulation !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgb(255, 255, 255) !important;
+  border-radius: 50% !important;
+  
+  &:hover {
+    color: black;
+    border-color: black;
+    color: black;
+  }
+  &:disabled {
+    cursor: not-allowed !important
+  }
+  
+  &-disabled {
+    color: rgb(235, 235, 235) !important;
+    border-color: rgb(235, 235, 235) !important;
+  }
+
+  &-minus {
+    display: block; 
+    fill: none; 
+    height: 12px; 
+    width: 12px; 
+    stroke: currentcolor; 
+    stroke-width: 5.33333; 
+    overflow: visible;
+  }
+
+  &-add {
+    display: block; 
+    fill: none; 
+    height: 12px; 
+    width: 12px; 
+    stroke: currentcolor; 
+    stroke-width: 5.33333; 
+    overflow: visible;
+  }
+}
+
+.adult, .child  {
+  display: flex;
+  justify-content: space-between;
+}
+.center-buttons {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top_title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,37 @@
+.input__search { 
+  position: relative;
+  width: 100%;
+
+  &-input {
+    padding-left: 3rem;
+  }
+
+  &-icon {
+    position: absolute;
+    left: 0px;
+    margin-left: 1.1em;
+    top: 0.6rem;
+
+    &:after {
+      content: asset-url('icons/search.svg');
+    }
+  }
+}
+
+.special_input {
+  border: 0;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.special_input::-webkit-outer-spin-button,
+.special_input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.special_input[type=number] {
+  -moz-appearance: textfield;
+}

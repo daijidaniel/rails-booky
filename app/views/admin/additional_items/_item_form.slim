@@ -1,0 +1,37 @@
+
+.container.mt-5
+  = form_with model: @item, url: admin_additional_item_path do |f|
+    = f.text_field :name
+    == f.rich_text_area :description
+    br
+    = f.file_field :images, multiple: true
+    h1.title.mt-5 ------ VARIANTS -------
+    .container
+      - @item.variants.each_with_index do |variant|
+        = f.fields_for :variants, [variant] do |af|
+          = af.label :name
+          = af.text_field :name
+          br
+          = af.rich_text_area :description
+          br
+          = af.label :price
+          = af.number_field :price
+          br
+          = af.file_field :image
+          br
+    = f.submit "Update", class: "button is-primary"
+
+
+h1.title.mt-5 ------ NEW VARIANTS -------
+= form_with model: Variant.new, url: admin_additional_item_variants_path(additional_item_id: @item.id) do |f|
+  = f.label :name
+  = f.text_field :name
+  br
+  = f.rich_text_area :description
+  br
+  = f.label :price
+  = f.number_field :price
+  br
+  = f.file_field :image
+  br
+  = f.submit "Create", class: "button is-primary"

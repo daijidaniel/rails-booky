@@ -1,0 +1,100 @@
+.hero {
+  position: relative;
+  background: asset-url('hero.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 80vh;
+}
+
+.hero__content {
+  margin-top: 5%;
+
+  &-search {
+    &-input {
+      height: 70px;
+      border-radius: 40px;
+    }
+  }
+
+  &-title {
+    max-width: 800px;
+    h1 {
+      font-size: 80px;
+      color: $booking-white-text;
+    }
+  }
+}
+
+.hero__gradient {
+  position: absolute;
+  height: 100%;
+  width: 100vw;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+section.attractions {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background: $booking-gray;
+
+  .attractions__content{
+    &-cards .columns {
+      scroll-snap-type: x mandatory;
+      overflow-x: scroll;
+      display: flex !important;
+      .column {
+        scroll-snap-align: center;
+        .card {
+          background: $booking-gray;
+          color: $booking-white;
+        }
+      }
+    }
+  }
+}
+
+@include touch {
+  .hero {
+    background: asset-url('hero_mob.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+
+    .hero__gradient {
+      z-index: 1;
+      height: 100%;
+      width: 100vw;
+      background: linear-gradient(180deg, #484848 0%, rgba(255, 255, 255, 0) 52.71%), linear-gradient(180deg, rgba(255, 255, 255, 0) 74.48%, #FFFFFF 100%);
+    }
+    .hero__content {
+      .container {
+        z-index: 10;
+      }
+
+      &-title {
+        margin-top: 20%;
+        z-index: 10;
+        h1 {
+          font-size: 2rem;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+  .attractions__content{
+    &-cards .columns {
+      display: flex;
+      align-items:center;
+      overflow-x: scroll;
+
+      .column {
+        min-width: 90%;
+        .card {
+          background: $booking-gray;
+          color: $booking-white;
+        }
+      }
+    }
+  }
+}
+

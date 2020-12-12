@@ -1,0 +1,19 @@
+en:
+  units/show:
+    night_hours: Hotel night hours
+    timing: from <b>3:00 PM</b> to <b>11:00 AM</b> of the next day 
+    cancellation: Cancellation terms
+    cancellation_details: You can find out more in details
+    visit_terms: Terms of visit
+    visit_terms_details: You can find out more in details
+    animals: Animals not allowed
+    animals_details: For very special case, please <a href="#">contact us</a>
+    contact: For any other questions
+    contact_details: <a href="#">call</a> us or <a href="#">send message</a>
+    covid_title: Fully customized to the requirements of COVID-19 😷 
+    covid_description: The tent is disinfected and aired, and our area is in the middle of the forest without the possibility of outside interference.
+    people_qty: Number of guests
+    book: Reserve
+    special: Any special kind of visit / surprises can be arranged 💍
+    special_description: We would love to help you in organizing an unforgettable event at Kimura Glamping.
+

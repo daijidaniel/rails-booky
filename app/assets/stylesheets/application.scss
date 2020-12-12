@@ -1,0 +1,43 @@
+@import "./colors";
+
+@import "bulma/bulma";
+@import "navbar";
+// @import "modals";
+
+@import "./font";
+@import "./typography";
+@import "./utils";
+@import "./buttons";
+@import "./flexbox";
+
+@import "./footer";
+@import "./basics";
+@import "./inputs";
+@import "./cards";
+
+@import "./homepage";
+@import "./units/show";
+
+@import "./datepicker";
+@import "./actiontext.scss";
+@import "./checkout/index";
+
+body {
+  background: $primarybackground;
+  font-family: $text-display;
+  overflow-x: none;
+}
+
+
+.sticky {
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 50 !important;
+}
+
+.is-thumbnail {
+  img {
+    width: 200px;
+    height: 200px;
+  }
+}

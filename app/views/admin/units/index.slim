@@ -1,0 +1,6 @@
+h1.title All units
+
+ul.content
+  - Unit.all.each do |unit|
+    li 
+      = link_to unit.name, admin_unit_path(id: unit.id)

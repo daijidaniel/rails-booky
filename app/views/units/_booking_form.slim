@@ -1,0 +1,17 @@
+= form_with model: Booking.new, url: bookings_path(unit_id: locals[:unit].id), method: :post do |form| 
+  = form.hidden_field :unit_id, value: locals[:unit].id
+  .field
+    .control
+      input.is-black type="date" name="booking[date]"
+  
+  .field
+    .control
+      .guestpicker#guestpicker
+        div.input#booking_amount placeholder="#{t("people_qty", scope: "units/show")}" autocomplete="off"
+          span.is-gray#guest_count = t "people_qty", scope: "units/show"
+    = form.hidden_field :guests
+
+  .actions
+    = form.submit t("book", scope: "units/show"), class: "button is-primary"
+
+= javascript_pack_tag 'guestpicker', 'data-turbolinks-track': 'reload'

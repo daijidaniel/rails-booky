@@ -1,0 +1,48 @@
+- i18n_scope = "checkout/index"
+
+section.checkout__head
+  .container
+    .checkout__head-customize
+      h1.title = t 'customize_booking', scope: i18n_scope
+      h2.subtitle = t 'dream_getaway', scope: i18n_scope
+
+section.booking__finalize
+  .container
+    .columns
+      .column.is-two-thirds
+        - current_bookings.each do |booking|
+          = render 'checkout/booking_card', locals: { booking: booking }
+          = render 'checkout/additional_item_form', locals: { booking: booking }
+
+      .column
+        .card.p-5.final__total
+          h1.title.is-purple
+            b = t 'total', scope: i18n_scope 
+            span.is-gray = humanized_money_with_symbol current_bookings.map { |b| b.price }.sum 
+          h2 = t 'summary', scope: i18n_scope
+
+        button.button.is-fullwidth.is-primary.mt-5 Checkout 
+
+= javascript_pack_tag 'quantity_selector', 'data-turbolinks-track': 'reload'
+
+javascript:
+  const buttons = document.getElementsByClassName("add-button");
+
+  [].forEach.call(buttons, function(el) {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      console.log(el);
+      var modal = el.offsetParent.nextElementSibling;
+      modal.classList.toggle("is-active");
+      
+      modal.querySelectorAll("[data-bulma-modal='close'], .modal-background").forEach(function(e) {
+        e.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          modal.classList.toggle('is-active');
+        })
+      });
+
+    })
+  })

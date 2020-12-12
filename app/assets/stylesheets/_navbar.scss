@@ -1,0 +1,59 @@
+.white__nav {
+  background: #FFFFFF;
+  transition: all 0.5s;
+}
+
+.navbar-item img {
+  max-width: initial;
+  max-height: initial;
+}
+
+@include desktop {
+  .navbar-end {
+    margin-left: auto;
+
+    &-scrolled {
+      width: initial;
+    }
+  }
+}
+
+nav, .navbar {
+  position: fixed;
+  width: 100%;
+  background: transparent;
+  background-color: transparent;
+  transition: all 500ms;
+  justify-content:center;
+}
+
+.white__nav {
+  background: white;
+  background-color: white;
+  transition: all 500ms;
+}
+
+@include touch {
+  .navbar-brand {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+  .navbar-burger {
+    margin-left: initial;
+    margin-right: auto;
+  }
+  .navbar-right {
+    width: 100%;
+  }
+}
+
+.navbar-burger {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+  height: 2.5em;
+  width: 2.5em;
+}
+
+.navbar-burger:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}

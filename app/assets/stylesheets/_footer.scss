@@ -1,0 +1,24 @@
+footer {
+  z-index: 0;
+  background: map-get($booking, 'gray-10');
+  cursor: auto !important;
+}
+
+.footer__links {
+  margin-bottom: 0.8rem;
+
+  li {
+    a {
+      color: map-get($booking, "gray-20") !important;
+      text-decoration: none;
+
+      &:hover {
+        color: map-get($booking, "gray-80") !important;
+      }
+    }
+  }
+}
+
+.footer__subtitle {
+  font-weight: bold
+}

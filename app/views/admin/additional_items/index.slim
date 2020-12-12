@@ -1,0 +1,11 @@
+h1 Create additional items
+
+ul
+  - Item.all.each do |x|
+    li = link_to x.name, admin_additional_item_path(id: x)
+
+= form_with model: Item.new, url: admin_additional_items_path do |f|
+  = f.text_field :name
+  = f.text_area :description
+  = f.number_field :price
+  = f.submit

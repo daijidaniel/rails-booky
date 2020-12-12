@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+  <head>
+    <title>BookingApp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, class: "notification #{notification_class name}" do %>
+        <%= content_tag :button, "", class: "delete" %>
+        <%= msg %>
+      <% end %>
+    <% end %>
+
+    <%= render "layouts/navbar" %>
+    <%= yield %>
+    <%= render "layouts/footer" %>
+  </body>
+</html>
+

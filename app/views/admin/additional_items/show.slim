@@ -1,0 +1,13 @@
+.container
+  ul
+    - @item.images.each do |file| 
+      li
+        = image_tag url_for(file)
+  p 
+    | Name: 
+    = @item.name
+  p 
+    | Descripton:
+    == @item.description
+  = render 'admin/additional_items/item_form' 
+  

@@ -1,0 +1,10 @@
+.card {
+  footer {
+    float: right;
+    padding: 1rem;
+  }
+}
+
+.card.is-purple  {
+  border-left: 15px solid map-get($booking, 'purple-100');
+}

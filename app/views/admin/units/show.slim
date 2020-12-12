@@ -1,0 +1,8 @@
+.columns
+  - @unit.images.each do |file| 
+    .column
+      .card
+        .card-image
+          = image_tag url_for(file)
+
+= render 'admin/units/unit_form', locals: { unit: @unit }

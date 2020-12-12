@@ -1,0 +1,20 @@
+.button-outline {
+  background-color: transparent !important;
+  border-color: $booking-white-text !important;
+  color: $booking-white;
+
+  &:hover {
+    background-color: $booking-white !important;
+    color: $booking-gray !important;
+  }
+}
+
+.button.is-primary {
+  color: $booking-white !important;
+}
+
+.button.is-primary:hover {
+  color: $booking-gray !important;
+  background-color: transparent !important;
+  border: 1px solid $primary;
+}

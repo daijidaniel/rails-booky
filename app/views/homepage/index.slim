@@ -1,0 +1,71 @@
+- i18n_scope = 'homepage'
+
+section.hero
+  .hero__gradient
+  .hero__content
+    .container
+      .hero__content-search.has-text-centered.hide-touch
+        input.input.hero__content-search-input
+      .hero__content-title.p-5
+        h1.title = t 'hero.discover', scope: i18n_scope
+
+section.tents
+  .tents__content.container
+    .tents__content-logo.has-text-centered
+      = image_tag 'logo.svg'
+    .tents__content-about.mt-5
+      h1.title = t 'tents.about_us', scope: i18n_scope
+      p.subtitle = t 'tents.about_us_subtitle', scope: i18n_scope
+    .tents__content-features.has-mt-72
+      .columns.is-mobile
+        .column.is-half.has-text-centered
+          = image_tag 'icons/tent.svg'
+          p.subtitle.is-bold = t 'tents.about_1', scope: i18n_scope
+        .column.is-half.has-text-centered
+          = image_tag 'icons/tent.svg'
+          p.subtitle.is-bold = t 'tents.about_1', scope: i18n_scope
+      .columns.is-mobile
+        .column.is-half.has-text-centered
+          = image_tag 'icons/tent.svg'
+          p.subtitle.is-bold = t 'tents.about_1', scope: i18n_scope
+        .column.is-half.has-text-centered
+          = image_tag 'icons/tent.svg'
+          p.subtitle.is-bold = t 'tents.about_1', scope: i18n_scope
+
+section.offer.has-mt-72
+  .offer__content.container
+    .offer__content-title
+      h1.title = t 'offer.luxury_tents', scope: i18n_scope
+      p.subtitle = t 'offer.luxury_tents_subtitle', scope: i18n_scope
+    .offer__content-offers.has-mt-36
+      .columns
+        - Unit.all.each do |unit|
+          = link_to unit_path(id: unit.slug), class: "column" do
+            .card
+              .card-image
+                figure.image.is-4by3
+                  = image_tag url_for(unit.images.first)
+              .card-content
+                .content 
+                  .title = unit.name
+                  p = unit.description.body&.to_plain_text&.truncate(50)
+              footer
+                p More
+
+section.attractions.has-mt-72
+  .attractions__content.container
+    .attractions__content-title.mb-5
+      h1.title.is-white = t 'attractions.attractions', scope: i18n_scope
+    .attractions__content-cards
+      .columns
+        - Unit.all.each do |unit|
+          = link_to unit_path(id: unit), class: "column" do
+            .card
+              .card-image
+                figure.image.is-4by3
+                  = image_tag url_for(unit.images.first)
+              .card-content
+                .content 
+                  .title.is-white = unit.name
+                  p = unit.description.body&.to_plain_text&.truncate(50)
+      = link_to "nothing", root_path, class: "button button-outline"
