@@ -1,8 +1,8 @@
 - i18n_scope = "checkout/index"
 
-.modal.is-active
+.modal
   .modal-background
-  .modal-card
+  .modal-card style="max-height: 95vh;"
     header.modal-card-head
       p.modal-card-title = locals[:booking].units.first.name + " #{t 'addons', scope: i18n_scope}"
       button.delete data-bulma-modal='close'
@@ -10,20 +10,21 @@
     section.modal-card-body
       = form_with model: locals[:booking], url: additional_item_path(id: locals[:booking].id), method: :put, remote: true do |f|
         - Item.all.each do |item|
-          - found_item = locals[:booking].additional_items.find_by(item_id: item.id)
-          - found_item = found_item.nil? ? AdditionalItem.new : found_item
+          - found_item = locals[:booking].additional_items.find_or_create_by(item_id: item.id)
           = f.fields_for :additional_items, [found_item] do |af|
             .card.mt-2.p-2 style="overflow: visible"
               .booking__info
                 .booking__info-image.is-thumbnail
                   = image_tag url_for item.images.first 
                 .booking__info-content style="flex-grow: 3;"
-                  h1.title = item.name
+                  h1.title.is-purple = item.name
                   p.subtitle == item.description
-              svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg" class="chevron-spin" xlink:href="#0" 
-                path d="M0.514893 1.46495L8.99989 9.94995L17.4849 1.46495L16.0709 0.0499516L8.99989 7.12195L1.92889 0.0499516L0.514893 1.46495Z" fill="#2E3A59"
-            = af.hidden_field :item_id, value: item.id
+                .addons_selector
+                  span.mr-5 = t 'choose', scope: i18n_scope
+                  svg width="18" height="10" viewBox="0 0 18 10" fill="none" class="chevron-spin" id="#{item.name + locals[:booking].id.humanize}"
+                    path d="M0.514893 1.46495L8.99989 9.94995L17.4849 1.46495L16.0709 0.0499516L8.99989 7.12195L1.92889 0.0499516L0.514893 1.46495Z" fill="#2E3A59"
 
+            = af.hidden_field :item_id, value: item.id
           = render 'checkout/variants_select', locals: { item: found_item, form: f }
     footer.modal-card-foot
       button.button.is-primary onClick="this.parentElement.parentElement.children[1].children[0].submit()" = t 'save', scope: i18n_scope

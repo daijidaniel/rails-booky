@@ -18,3 +18,8 @@ en:
     addons: Addons
     save: Save changes
     cancel: Cancel
+    choose: Choose addons
+    subtotal: Subtotal
+    vat: VAT
+    extra_adult: Extra adult
+    extra_child: Extra child

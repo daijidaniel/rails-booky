@@ -13,6 +13,6 @@ module ApplicationHelper
   end
 
   def current_bookings
-    current_user.bookings.unpaid
+    current_bookings ||= current_user.bookings.unpaid
   end
 end

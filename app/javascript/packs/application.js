@@ -54,7 +54,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-
-function submit_form() {
-  console.log(event.target);
-}

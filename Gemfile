@@ -31,6 +31,7 @@ gem 'friendly_id', '~> 5.4.0'
 gem 'money'
 gem 'money-rails', '~>1.12'
 gem 'image_processing'
+gem 'humanize'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

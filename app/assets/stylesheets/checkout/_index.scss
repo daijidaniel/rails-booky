@@ -111,11 +111,6 @@ hr.less-padding {
   }
 }
 
-.chevron-spin {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-}
 
 .chevron-spin:hover {
   transform: rotate(180deg);
@@ -125,5 +120,34 @@ hr.less-padding {
   path {
     color: map-get($booking, "purple-100");
     fill: map-get($booking, "purple-100");
+  }
+}
+
+.toggle-content {
+  display: none;
+  height: 0;
+  overflow: hidden;
+  transition: height 350ms ease-in-out;
+}
+
+.toggle-content.is-visible {
+  display: block;
+  height: auto;
+}
+
+.addons_selector {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkout__summary {
+  &-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }

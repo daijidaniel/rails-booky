@@ -1,4 +1,7 @@
 - i18n_scope = "checkout/index"
+- total = current_bookings.map(&:price).sum
+- vat = total / 23
+- before_vat = total - vat
 
 section.checkout__head
   .container
@@ -19,11 +22,28 @@ section.booking__finalize
           h1.title.is-purple
             b = t 'total', scope: i18n_scope 
             span.is-gray = humanized_money_with_symbol current_bookings.map { |b| b.price }.sum 
-          h2 = t 'summary', scope: i18n_scope
+          b.is-size-5 = t 'summary', scope: i18n_scope
+          = render 'checkout/summary', locals: { bookings: current_bookings }
 
-        button.button.is-fullwidth.is-primary.mt-5 Checkout 
+          .checkout__summary-block
+            .checkout__summary-left
+              b = t 'subtotal', scope: i18n_scope
+            .checkout__summary-right
+              = before_vat
+          .checkout__summary-block
+            .checkout__summary-left
+              b = t 'vat', scope: i18n_scope
+            .checkout__summary-right
+              = vat
+          .checkout__summary-block
+            .checkout__summary-left
+              b = t 'total', scope: i18n_scope
+            .checkout__summary-right
+              = total
+        button.button.is-fullwidth.is-primary.mt-5 = t 'checkout', scope: i18n_scope
 
 = javascript_pack_tag 'quantity_selector', 'data-turbolinks-track': 'reload'
+= javascript_pack_tag 'variants_selector', 'data-turbolinks-track': 'reload'
 
 javascript:
   const buttons = document.getElementsByClassName("add-button");

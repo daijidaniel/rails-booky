@@ -1,0 +1,39 @@
+- i18n_scope = "checkout/index"
+- bookings = locals[:bookings]
+br
+.checkout__summary
+- bookings.each_with_index do |booking, idx|
+  - days = (booking.end_date.to_date - booking.start_date.to_date).to_i
+  .checkout__summary-block
+    .checkout__summary-left
+      .checkout__summary-name
+        = booking.units.first.name + " (#{distance_of_time_in_words(booking.start_date, booking.end_date)})"
+      .checkout__summary-days
+        
+    .checkout__summary-right
+      span.is-purple = humanized_money_with_symbol booking.units.first.price * (booking.end_date.to_date - booking.start_date.to_date).to_i
+  - booking.additional_variants.each do |v|
+    - next if v.quantity == 0
+    .checkout__summary-block.pl-2
+      .checkout__summary-left
+        = v.quantity.to_s + " x " + v.variant.name
+      .checkout__summary-right
+        span.is-purple = humanized_money_with_symbol v.variant.price * v.quantity
+  - if booking.adult_capacity + booking.child_capacity > 0
+    - if booking.adult_capacity - 2  > 0 
+      .checkout__summary-block
+        .checkout__summary-left
+          = (booking.adult_capacity - 2).to_s + " x " + t('extra_adult', scope: i18n_scope)
+        .checkout__summary-right
+          span.is-purple = humanized_money_with_symbol Money.new((booking.adult_capacity - 2) * Booking::ADULT_EXTRA_PRICE * 100) * days
+    .checkout__summary-block
+      .checkout__summary-left
+        = (booking.child_capacity).to_s + " x " + t('extra_child', scope: i18n_scope)
+      .checkout__summary-right
+        span.is-purple = humanized_money_with_symbol Money.new((booking.child_capacity) * Booking::CHILD_EXTRA_PRICE * 100) * days
+  .checkout__summary-block
+    .checkout__summary-left
+      b = t 'subtotal', scope: i18n_scope
+    .checkout__summary-left
+      b.is-purple = humanized_money_with_symbol booking.price
+  hr

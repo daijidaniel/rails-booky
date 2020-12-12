@@ -1,15 +1,23 @@
 - item = Item.find(locals[:item].item_id)
 - booking = locals[:item].booking
 
-.card.p-5.mt-5
+.card.p-5.mt-5.toggle-content id="#{item.name + booking.id.humanize}"
   .card-body
-    h1.title = item.name
+    h1.title.is-purple.has-text-centered = item.name
     - item.variants.each do |variant|
       - found_variant = booking.additional_variants.find_by(variant_id: variant.id)
       - found_variant = found_variant.nil? ? AdditionalVariant.new : found_variant
-      = locals[:form].fields_for :additional_variants, found_variant do |vf|
-        .field.is-space-between
-          = variant.name
-          = vf.label :quantity
-          = vf.number_field :quantity, 'data-quantity-modal': 'quantity', class: "special_input"
-          = vf.hidden_field :variant_id, value: variant.id
+
+      = locals[:form].fields_for 'additional_variants[]', found_variant do |vf|
+        .card.p-1.mt-2
+          .columns
+            .column
+              = image_tag url_for variant.image if  variant.image.attached?
+            .column
+              h1.title.is-size-4 = variant.name
+              h2.subtitle.is-purple = humanized_money_with_symbol variant.price
+              p == variant.description
+              .field.is-space-between
+                b = vf.label :quantity
+                = vf.number_field :quantity, 'data-quantity-modal': 'quantity', class: "special_input"
+                = vf.hidden_field :variant_id, value: variant.id

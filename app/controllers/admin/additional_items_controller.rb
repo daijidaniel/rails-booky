@@ -38,7 +38,8 @@ module Admin
         :name,
         :description,
         :price,
-        images: []
+        images: [],
+        variants_attributes: {}
       )
     end
   end

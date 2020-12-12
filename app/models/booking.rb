@@ -24,7 +24,7 @@ class Booking < ApplicationRecord
     
     total = units.map do |unit|
       unit.price_cents + extra_amount * 100
-    end.sum * (end_date.to_date - start_date.to_date).to_i
+    end.sum * (end_date.to_date - start_date.to_date).to_i + additional_variants.map { |av| av.quantity * av.variant.price_cents }.sum
 
     self.price_cents = total
   end

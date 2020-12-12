@@ -9,6 +9,7 @@
     .container
       - @item.variants.each_with_index do |variant|
         = f.fields_for :variants, [variant] do |af|
+          = image_tag url_for(variant.image), width: "100px", height: "100px" if variant.image.attached?
           = af.label :name
           = af.text_field :name
           br
