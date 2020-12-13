@@ -3,6 +3,8 @@ class Booking < ApplicationRecord
   CHILD_EXTRA_PRICE = 100
 
   belongs_to :user, required: false
+  belongs_to :payment, required: false
+
   has_many :unit_bookings, dependent: :delete_all
   has_many :units, through: :unit_bookings
   monetize :price_cents
@@ -13,7 +15,7 @@ class Booking < ApplicationRecord
   has_many :additional_variants
   has_many :variants, through: :additional_variants
 
-  enum payment_status: %i[unpaid pending paid]
+  enum payment_status: %i[unpaid pending paid cancelled]
 
   accepts_nested_attributes_for :additional_items
 

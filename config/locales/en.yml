@@ -9,3 +9,4 @@ en:
     my_account: My account
     faq: FAQ
     cancel: Cancel the booking
+  address_error: Fill in your address before continuing

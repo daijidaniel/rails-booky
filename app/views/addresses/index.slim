@@ -1,0 +1,17 @@
+- i18n_scope = "addresses/index"
+
+section.checkout__head
+  .container
+    .checkout__head-customize
+      h1.title = t 'address', scope: i18n_scope
+      h2.subtitle = t 'billing_address', scope: i18n_scope
+
+section.booking__finalize.mb-5
+  .container
+    .columns
+      .column.is-two-thirds
+        = render 'addresses/address_form'
+      .column
+        = render 'checkout/summary', locals: { bookings: current_bookings }
+        / = link_to t('save and continue', scope: i18n_scope), {}, onClick: "", class: "button is-fullwidth is-primary mt-5"
+

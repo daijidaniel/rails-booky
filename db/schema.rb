@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_11_101226) do
+ActiveRecord::Schema.define(version: 2020_12_13_014356) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 2020_12_11_101226) do
     t.string "city"
     t.string "country"
     t.string "postcode"
+    t.string "phone"
     t.index ["user_id"], name: "index_addresses_on_user_id", unique: true
   end
 
@@ -84,6 +85,8 @@ ActiveRecord::Schema.define(version: 2020_12_11_101226) do
     t.integer "child_capacity", default: 0
     t.integer "price_cents", default: 0, null: false
     t.string "price_currency", default: "PLN", null: false
+    t.bigint "payment_id"
+    t.index ["payment_id"], name: "index_bookings_on_payment_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -104,6 +107,13 @@ ActiveRecord::Schema.define(version: 2020_12_11_101226) do
     t.integer "price"
     t.integer "price_cents", default: 0, null: false
     t.string "price_currency", default: "PLN", null: false
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.string "payu_id"
+    t.bigint "user_id"
+    t.integer "status", default: 0
+    t.index ["user_id"], name: "index_payments_on_user_id"
   end
 
   create_table "unit_bookings", force: :cascade do |t|
@@ -149,6 +159,7 @@ ActiveRecord::Schema.define(version: 2020_12_11_101226) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "addresses", "users"
+  add_foreign_key "bookings", "payments"
   add_foreign_key "bookings", "users"
   add_foreign_key "unit_bookings", "bookings"
   add_foreign_key "unit_bookings", "units"

@@ -8,6 +8,11 @@ Rails.application.routes.draw do
     resources :homepage, only: %i[ index ]
     resources :checkout, only: %i[ index ]
     resources :additional_items, only: %i[ create update ]
+    resources :payments, only: %i[ index create ]
+    resources :addresses, only: %i[ create index ]
+    resources :payment_notify, only: %i[ create ]
+    resources :available_dates, only: %i[ show ]
+    resources :order_completed, only: %i[ index ]
 
     namespace :admin do
       root "units#index"

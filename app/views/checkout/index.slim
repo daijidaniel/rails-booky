@@ -1,7 +1,4 @@
 - i18n_scope = "checkout/index"
-- total = current_bookings.map(&:price).sum
-- vat = total / 23
-- before_vat = total - vat
 
 section.checkout__head
   .container
@@ -9,7 +6,7 @@ section.checkout__head
       h1.title = t 'customize_booking', scope: i18n_scope
       h2.subtitle = t 'dream_getaway', scope: i18n_scope
 
-section.booking__finalize
+section.booking__finalize.mb-5
   .container
     .columns
       .column.is-two-thirds
@@ -18,29 +15,8 @@ section.booking__finalize
           = render 'checkout/additional_item_form', locals: { booking: booking }
 
       .column
-        .card.p-5.final__total
-          h1.title.is-purple
-            b = t 'total', scope: i18n_scope 
-            span.is-gray = humanized_money_with_symbol current_bookings.map { |b| b.price }.sum 
-          b.is-size-5 = t 'summary', scope: i18n_scope
-          = render 'checkout/summary', locals: { bookings: current_bookings }
-
-          .checkout__summary-block
-            .checkout__summary-left
-              b = t 'subtotal', scope: i18n_scope
-            .checkout__summary-right
-              = before_vat
-          .checkout__summary-block
-            .checkout__summary-left
-              b = t 'vat', scope: i18n_scope
-            .checkout__summary-right
-              = vat
-          .checkout__summary-block
-            .checkout__summary-left
-              b = t 'total', scope: i18n_scope
-            .checkout__summary-right
-              = total
-        button.button.is-fullwidth.is-primary.mt-5 = t 'checkout', scope: i18n_scope
+        = render 'checkout/summary', locals: { bookings: current_bookings }
+        = link_to t('continue', scope: i18n_scope), addresses_path, class: "button is-fullwidth is-primary mt-5"
 
 = javascript_pack_tag 'quantity_selector', 'data-turbolinks-track': 'reload'
 = javascript_pack_tag 'variants_selector', 'data-turbolinks-track': 'reload'

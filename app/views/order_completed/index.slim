@@ -1,0 +1,10 @@
+- i18n_scope = "order_completed/index"
+section.checkout__head
+  .container
+    .checkout__head-customize
+      h1.title = t 'order', scope: i18n_scope
+      h2.subtitle = t 'done', scope: i18n_scope
+
+
+    .card.p-5
+      = render 'checkout/summary', locals: { bookings: @payment.bookings }

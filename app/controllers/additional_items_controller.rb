@@ -15,11 +15,11 @@ class AdditionalItemsController < ApplicationController
     end
 
     booking_params[:additional_variants].each do |variant|
-      found_variant = booking.additional_variants.find_by(variant_id: variant[1][:variant_id])
 
+      found_variant = booking.additional_variants.find_by(variant_id: variant[:variant_id])
       found_variant.nil? ? 
-      booking.additional_variants.create(variant[1]) : 
-      found_variant.update(variant[1])
+      booking.additional_variants.create(variant) : 
+      found_variant.update(variant)
     end
 
     if booking.save!

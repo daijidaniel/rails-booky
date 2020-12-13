@@ -6,5 +6,7 @@ class User < ApplicationRecord
 
   has_many :bookings
   has_one :address
+  has_many :payments
+  
   enum auth_level: %i[ user admin ]
 end

@@ -1,0 +1,4 @@
+en:
+  payments/index:
+    payment: Payment
+    choose_payment: Choose payment option

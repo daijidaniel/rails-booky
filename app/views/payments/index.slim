@@ -1,0 +1,19 @@
+- i18n_scope = "payments/index"
+
+section.checkout__head
+  .container
+    .checkout__head-customize
+      h1.title = t 'payment', scope: i18n_scope
+      h2.subtitle = t 'choose_payment', scope: i18n_scope
+
+section.booking__finalize.mb-5
+  .container
+    .columns
+      .column.is-two-thirds
+        .card.p-5
+          div.is-flex.is-align-center 
+            = check_box_tag :payu, {}, {}, class: "mr-5"
+            = image_tag "https://developers.payu.com/images/payu_logo.png"
+      .column
+        = render 'checkout/summary', locals: { bookings: current_bookings }
+        = link_to t('pay', scope: i18n_scope), payments_path, method: :post, class: "button is-fullwidth is-primary mt-5"

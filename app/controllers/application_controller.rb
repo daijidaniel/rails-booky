@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if:  :devise_controller?
   before_action :set_locale
+  protect_from_forgery with: :null_session
 
   protected
 
@@ -44,5 +45,9 @@ class ApplicationController < ActionController::Base
 
   def self.default_url_options(options = {})
     options.merge(locale: I18n.locale)
+  end
+
+  def ensure_cart
+    redirect_to checkout_index_path, flash: { error: "Cart empty!" } unless current_user.bookings.unpaid.any?
   end
 end

@@ -81,11 +81,12 @@ section.unit__page
 
         .column.is-one-quarter
           .card.p-5.mb-3.hide-touch
-            .is-size-4.mb-2 Price
+            .is-size-4.mb-2 = t 'price',  scope: i18n_scope
             h1.title.is-size-2.is-purple.is-bold.has-no-margin = humanized_money_with_symbol @unit.price
-            span per night
+            span = t 'per_night', scope: i18n_scope
           .card.visible-overflow.p-5
-            .is-size-4.mb-2 Find dates
+            .is-size-4.mb-2 = t 'find_dates', scope: i18n_scope
             = render "units/booking_form", locals: { unit: @unit }
+            span#current_unit data-unit-id="#{@unit.id}"
       hr
 = javascript_pack_tag 'datepicker', 'data-turbolinks-track': 'reload'
