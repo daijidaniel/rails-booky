@@ -10,6 +10,7 @@ section.booking__finalize.mb-5
   .container
     .columns
       .column.is-two-thirds
+        /= current_bookings.last.units.inspect
         - current_bookings.each do |booking|
           = render 'checkout/booking_card', locals: { booking: booking }
           = render 'checkout/additional_item_form', locals: { booking: booking }

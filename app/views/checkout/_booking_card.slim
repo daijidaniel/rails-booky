@@ -5,7 +5,8 @@
 .card.mb-5
   .booking__info
     .booking__info-image
-      = image_tag url_for unit.images.first
+      - if unit.images.attached?
+        = image_tag url_for unit.images.first 
     .booking__info-content style="flex-grow: 3;"
       = link_to booking_path(id: booking.id), method: :delete, class: "is-danger", style: "float: right" do
         span

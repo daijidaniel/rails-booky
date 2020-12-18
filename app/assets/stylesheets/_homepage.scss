@@ -7,7 +7,13 @@
 }
 
 .hero__content {
-  margin-top: 5%;
+  .container {
+    height: 80vh;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
 
   &-search {
     &-input {
@@ -17,7 +23,6 @@
   }
 
   &-title {
-    max-width: 800px;
     h1 {
       font-size: 80px;
       color: $booking-white-text;
@@ -33,24 +38,45 @@
 }
 
 section.attractions {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  background: $booking-gray;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background: #151615;
 
   .attractions__content{
     &-cards .columns {
-      scroll-snap-type: x mandatory;
-      overflow-x: scroll;
+      scroll-snap-type: x mandatory !important;
+      overflow-x: scroll !important;
       display: flex !important;
       .column {
-        scroll-snap-align: center;
+        scroll-snap-align: center !important;
         .card {
-          background: $booking-gray;
-          color: $booking-white;
+          background: transparent !important;
+          color: $booking-white !important;
+          .card-image {
+            figure {
+              img {
+                border-radius: 15px;
+              }
+            }
+          }
         }
       }
     }
   }
+}
+
+.tents__content {
+  margin-top: 5%;
+  &-about {
+    p {
+      margin-top: 2rem !important;
+      line-height: 2;
+    }
+  }
+}
+
+.offer, .attractions, .specials {
+  margin-top: 5%;
 }
 
 @include touch {
@@ -97,4 +123,3 @@ section.attractions {
     }
   }
 }
-

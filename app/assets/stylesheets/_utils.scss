@@ -193,3 +193,18 @@
 .visible-overflow {
   overflow: visible;
 }
+
+.card.rounded {
+  box-shadow: none;
+  cursor: pointer;
+  &::hover {
+    cursor: pointer;
+  }
+  .card-image {
+    figure {
+      img {
+        border-radius: 15px;
+      }
+    }
+  }
+}

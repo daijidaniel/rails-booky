@@ -265,7 +265,7 @@ $booking: (
   "purple-100": #850260
 );
 
-$primarybackground: $booking-white;
+$primarybackground: #FBFBFB;
 $primary: map-get($booking, 'purple-100');
 $link: map-get($booking, 'purple-100');
 $info: map-get($booking, 'blue-pop-80');

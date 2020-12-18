@@ -4,10 +4,29 @@ en:
       discover: Discover the luxury of nature
     tents:
       about_us: About us
-      about_us_subtitle: Chupa chups apple pie tootsie roll jelly beans dragée brownie donut biscuit powder.
-      about_1: Ideal for lovers
+      about_us_subtitle: Bonbon donut jelly-o tart tootsie roll powder bonbon lollipop macaroon. Sweet roll jujubes lollipop. Marzipan candy cupcake danish. Liquorice brownie gummi bears apple pie jelly. Toffee carrot cake dessert brownie tiramisu icing lemon drops sesame snaps. Sweet cupcake cookie pie ice cream chocolate bar. Fruitcake fruitcake topping tart. Tart chocolate cake wafer cake bonbon powder. Gummi bears dessert jelly beans candy canes cupcake cheesecake. Gummi bears pie topping muffin dessert sweet roll jelly lollipop. Gummi bears pie topping muffin dessert sweet roll jelly lollipop. Gummi bears pie topping muffin dessert sweet roll jelly lollipop.
+      about_1: Luxury tents
+      about_2: Middle of forest
+      about_3: Relax and Spa
+      about_4: Slow living
     offer: 
       luxury_tents: Find out our luxury tents
-      luxury_tents_subtitle: Subtitles lorem ipsum
+      luxury_tents_subtitle: Voyages de plusieurs jours organisés par des experts locaux avec activités, repas et logements compris
     attractions:
       attractions: Facilities and attractions at Kimura Glamping
+    facilities:
+      magical_forest: Magical forest
+      tub: Tub
+      cinema: Cinema
+      gazebo: Gazebo
+      open_air_bath: Open-air bath
+      sauna: Sauna
+      hammocks: Hammocks
+      camp_fire: Camp fire
+    specials:
+      title: Kimura Glamping for special events
+      b2b: Events for B2B firms
+      photoshoot: Photoshoot venue
+      ocassions: Occasional parties
+    awards:
+      title: Awards and cooperations

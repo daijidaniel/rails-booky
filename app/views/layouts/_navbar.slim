@@ -1,27 +1,38 @@
 nav.navbar role="navigation" aria-label="main navigation"
-  .navbar-brand
-    .navbar-right.only-touch
-      a.navbar-item
-        .input__search
-          input.input.input__search-input placeholder="Search for something"
-          span.input__search-icon
+  .container
+    .navbar-brand
+      .navbar-right.only-touch
+        a.navbar-item
+          .input__search
+            input.input.input__search-input placeholder="Search for something"
+            span.input__search-icon
 
-    .hide-touch
-      a.navbar-item href="#{root_path}"
-        = image_tag 'logo.svg', width: "112", height: "28"
+      .hide-touch
+        a.navbar-item href="#{root_path}"
+          | 🇬🇧 / 🇵🇱
 
-    .navbar-item
-      a.navbar-burger role="button" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"
-        span aria-hidden="true"
-        span aria-hidden="true"
-        span aria-hidden="true"
-
-  .navbar-menu id="navbarBasicExample"
-    .navbar-start
-    .navbar-end
       .navbar-item
-        .buttons
-          - if user_signed_in?
-            = link_to('Logout', destroy_user_session_path, method: :delete, class: "button is-danger", style: "float: right") 
-          - else 
-            = link_to('Login', new_user_session_path, class: "button is-primary", style: "float: right")
+        a.navbar-burger role="button" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"
+          span aria-hidden="true"
+          span aria-hidden="true"
+          span aria-hidden="true"
+
+    .navbar-menu id="navbarBasicExample"
+      .navbar-start
+      .navbar-end
+        .navbar-item
+          .buttons
+            - if user_signed_in?
+              = link_to 'Logout', destroy_user_session_path, method: :delete, class: "button is-danger", style: "float: right"
+
+            - else 
+              = link_to new_user_session_path, style: "float: right" do
+                svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg"
+                  path d="M2 19H0V18C0.00440864 14.1358 3.13583 11.0044 7 11H11C14.8642 11.0044 17.9956 14.1358 18 18V19H16V18C15.9967 15.2399 13.7601 13.0033 11 13H7C4.23995 13.0033 2.00331 15.2399 2 18V19ZM9 10C6.23858 10 4 7.76142 4 5C4 2.23858 6.23858 0 9 0C11.7614 0 14 2.23858 14 5C13.9967 7.76005 11.7601 9.99669 9 10ZM9 2C7.34315 2 6 3.34315 6 5C6 6.65685 7.34315 8 9 8C10.6569 8 12 6.65685 12 5C12 3.34315 10.6569 2 9 2Z" fill="#FBFBFB"
+        .navbar-item
+          svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+            path d="M16 20H2C0.89543 20 0 19.1046 0 18V4C0 2.89543 0.89543 2 2 2H4V0H6V2H12V0H14V2H16C17.1046 2 18 2.89543 18 4V18C18 19.1046 17.1046 20 16 20ZM2 8V18H16V8H2ZM2 4V6H16V4H2ZM14 16H12V14H14V16ZM10 16H8V14H10V16ZM6 16H4V14H6V16ZM14 12H12V10H14V12ZM10 12H8V10H10V12ZM6 12H4V10H6V12Z" fill="#FBFBFB"
+        .navbar-item
+          svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+            path d="M15.5951 19.006H15.5671C11.7254 18.9115 8.05937 17.3775 5.2951 14.708C2.62462 11.9463 1.08979 8.28159 0.994984 4.44103C0.989327 3.90303 1.20056 3.38539 1.5811 3.00503L4.2951 0.293031C4.6856 -0.0973513 5.3186 -0.0973513 5.7091 0.293031L9.7091 4.29303C10.0995 4.68353 10.0995 5.31653 9.7091 5.70703L8.1131 7.30003C8.40911 8.40595 8.95437 9.42943 9.7071 10.292C10.5681 11.045 11.5903 11.5907 12.6951 11.887L14.2951 10.293C14.6856 9.90265 15.3186 9.90265 15.7091 10.293L19.7091 14.293C20.0995 14.6835 20.0995 15.3165 19.7091 15.707L16.9951 18.42C16.625 18.7939 16.1212 19.0048 15.5951 19.006ZM5.0001 2.41503H4.9951L2.9951 4.41903C3.07664 7.73769 4.40142 10.9047 6.7071 13.293C9.09553 15.5979 12.2619 16.9226 15.5801 17.005L17.5871 15L14.9951 12.415L13.7021 13.707C13.5171 13.8941 13.2652 13.9995 13.0021 14C12.9319 14.0001 12.8618 13.9927 12.7931 13.978C11.1267 13.6094 9.57949 12.8286 8.2931 11.707C7.17155 10.4206 6.39071 8.8734 6.0221 7.20703C5.95256 6.8758 6.05529 6.53187 6.2951 6.29303L7.5871 5.00003L5.0001 2.41503Z" fill="#FBFBFB"
+        

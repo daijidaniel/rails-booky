@@ -20,6 +20,6 @@ module BookingApp
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
-    config.hosts << "da996e15ea49.ngrok.io"
+    config.hosts << "6d07ad69b41e.ngrok.io"  
   end
 end
