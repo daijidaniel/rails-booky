@@ -6,20 +6,20 @@ footer.p-5
     .columns
       .column
         .brand__section
-          = image_tag "logo-gray", class: "brand__section-logo"
+          = image_tag "logo-gray", class: "brand__section-logo", loading: "lazy"
           .mt-2
             p © Kimura Glamping 2020
             p = t 'rights_reserved', scope: i18n_scope
           .brand__section-socialmedia.mt-5
-            = image_tag "icons/ig_logo", class: "mr-5"
-            = image_tag "icons/fb_logo"
+            = link_to "https://instagram.com/kimuraglamping" do
+              = image_tag "icons/ig_logo", class: "mr-5", loading: "lazy"
+            = link_to "https://facebook.com/kimuraglamping" do
+              = image_tag "icons/fb_logo", loading: "lazy"
       .column
         h3.title = t "help_center", scope: i18n_scope
         ul.content.footer__links
-          /li = link_to t('contact', scope: i18n_scope), "", class: "footer__link"
           li = link_to t('tos', scope: i18n_scope), "", class: "footer__link"
           li = link_to t('privacy', scope: i18n_scope), "", class: "footer__link"
-          /li = link_to t('my_account', scope: i18n_scope), "", class: "footer__link"
           li = link_to t('faq', scope: i18n_scope), "", class: "footer__link"
           li = link_to t('cancel', scope: i18n_scope), "", class: "footer__link"
       .column
@@ -41,5 +41,5 @@ footer.p-5
     hr.is-gray
       p.is-centered-middle
         | Designed and developed by &nbsp;
-        = image_tag "icons/jalapp_logo"
+        = image_tag "icons/jalapp_logo", loading: "lazy"
 

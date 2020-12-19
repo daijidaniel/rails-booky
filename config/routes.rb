@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :available_dates, only: %i[ index show ]
     resources :order_completed, only: %i[ index ]
     resources :contact_form, only: %i[ create ]
-    
+
     namespace :admin do
       root "units#index"
 
@@ -24,5 +24,4 @@ Rails.application.routes.draw do
       end
     end
   end
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

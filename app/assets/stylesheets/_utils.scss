@@ -134,6 +134,10 @@
   background: $booking-white !important;
 }
 
+.has-bg-purple {
+  background: map-get($booking, "purple-100") !important;
+}
+
 .has-border-white {
   border-color: $booking-white !important;
 }
@@ -182,7 +186,7 @@
 
 @include touch {
   .only-touch {
-    display: block !important;
+    display: initial !important;
   }
 
   .hide-touch {

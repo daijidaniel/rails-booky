@@ -1,0 +1,16 @@
+.session__login {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card {
+    max-width: 500px;
+  }
+}

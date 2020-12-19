@@ -6,13 +6,20 @@ class CheckoutController < ApplicationController
 
   def assign_pending_booking
     booking_id = cookies[:booking_id]
-    if booking_id.present?
+    if booking_id
       booking = Booking.find_by(id: booking_id)
 
       if booking
-        current_user.bookings << booking unless current_user.bookings.find_by(id: booking.id)
-        cookies.delete :booking_id
+        puts "\n\n\n\n\n\n #{current_user.bookings.inspect} \n\n"
+        unless booking_exists? booking.id
+          current_user.bookings << booking
+          cookies.delete :booking_id
+        end
       end
     end
+  end
+
+  def booking_exists? booking_id
+    current_user.bookings.find_by(id: booking_id)
   end
 end

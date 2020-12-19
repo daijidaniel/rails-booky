@@ -25,11 +25,13 @@ class BookingsController < ApplicationController
   # POST /bookings.json
   def create
     @booking = Booking.new(booking_params_parsed)
-    unit = Unit.find(params[:booking][:unit_id]) if params[:booking][:unit_id]
+    units = Unit.where(id: params[:booking][:unit_id]) if params[:booking][:unit_id]
+    @booking.units << units
+
     respond_to do |format|
       if @booking.save
         if user_signed_in?
-          @booking.update user: current_user, units: [ unit ]
+          @booking.update user: current_user, units: [ units ]
         else
           cookies[:booking_id] = @booking.id
         end

@@ -1,15 +1,23 @@
 nav.navbar role="navigation" aria-label="main navigation"
   .container
     .navbar-brand
-      .navbar-right.only-touch
-        a.navbar-item
+      .navbar-right style="display: flex !important; justify-content: space-between"
+        a.navbar-item.only-touch
           .input__search
-            input.input.input__search-input placeholder="Search for something"
-            span.input__search-icon
-
+            .hero__content-searchnav.has-text-centered.m-2#searchnav
+              input.input.hero__content-search-input placeholder="Pick a date" type="date" name="booking[date]" style="height: initial"
+              span#current_unit data-unit-id="?id=all"
+        .navbar-item.only-touch
+          . style="float: right; display: flex !important; justify-content: center; flex-direction: row"
+            span
+              a.navbar-item href="#{root_path(locale: :en)}" 🇬🇧 
+            span
+              a.navbar-item href="#{root_path(locale: :pl)}" 🇵🇱
       .hide-touch style="display: flex; align-items: center"
-        a.navbar-item href="#{root_path}"
-          | 🇬🇧 / 🇵🇱
+        span
+          a.navbar-item href="#{root_path(locale: :en)}" 🇬🇧 
+        span
+          a.navbar-item href="#{root_path(locale: :pl)}" 🇵🇱
 
       .navbar-item
         a.navbar-burger role="button" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"
@@ -18,10 +26,11 @@ nav.navbar role="navigation" aria-label="main navigation"
           span aria-hidden="true"
 
     .navbar-menu id="navbarBasicExample"
-      .navbar-start style="width: 100%; display: flex; justify-content: center"
+      .navbar-start style="width: 100%; display: flex; justify-content: center;"
         .hero__content-searchnav.has-text-centered.hide-touch.m-2#searchnav style="width: 80%"
           input.input.hero__content-search-input placeholder="Pick a date" type="date" name="booking[date]" style="height: initial"
           span#current_unit data-unit-id="?id=all"
+      
       .navbar-end
         .navbar-item
           .buttons

@@ -1,7 +1,10 @@
 class UnitsController < ApplicationController
   before_action :set_unit, only: :show
 
-  def index; end
+  def index
+    @units ||= Unit.all
+  end
+  
   def show; end
 
   private

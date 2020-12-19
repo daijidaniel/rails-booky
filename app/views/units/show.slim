@@ -11,17 +11,17 @@ section.unit__page
       .tile.is-ancestor
         .tile.is-parent.is-vertical.is-6
           .tile.is-child.is-primary
-            = image_tag url_for(images[0])
+            = image_tag url_for(images[0]), loading: "lazy"
         .tile.is-parent.is-vertical.is-3
           .tile.is-child.is-primary
-            = image_tag url_for(images[1])
+            = image_tag url_for(images[1]), loading: "lazy"
           .tile.is-child.is-primary
-            = image_tag url_for(images[2])
+            = image_tag url_for(images[2]), loading: "lazy"
         .tile.is-parent.is-vertical.is-3
           .tile.is-child.is-primary
-            = image_tag url_for(images[3])
+            = image_tag url_for(images[3]), loading: "lazy"
           .tile.is-child.is-primary
-            = image_tag url_for(images[4])
+            = image_tag url_for(images[4]), loading: "lazy"
 
   .unit__page-information.mt-5
     .container
@@ -41,31 +41,31 @@ section.unit__page
               .unit__page-information-points
                 ul.content.has-text-left
                   li
-                    = image_tag "icons/clock", class: "mr-3"
+                    = image_tag "icons/clock", class: "mr-3", loading: "lazy"
                     .info
                       .is-size-5
                         strong = t "night_hours", scope: i18n_scope
                       p = t("timing", scope: i18n_scope).html_safe
                   li
-                    = image_tag "icons/calendar_x", class: "mr-3"
+                    = image_tag "icons/calendar_x", class: "mr-3", loading: "lazy"
                     .info
                       .is-size-5
                         strong = t "cancellation", scope: i18n_scope
                       p = t("cancellation_details", scope: i18n_scope).html_safe
                   li
-                    = image_tag "icons/info_square_outline", class: "mr-3"
+                    = image_tag "icons/info_square_outline", class: "mr-3", loading: "lazy"
                     .info
                       .is-size-5
                         strong = t "visit_terms", scope: i18n_scope
                       p = t("visit_terms_details", scope: i18n_scope).html_safe
                   li
-                    = image_tag "icons/no-pets", class: "mr-3"
+                    = image_tag "icons/no-pets", class: "mr-3", loading: "lazy"
                     .info
                       .is-size-5
                         strong = t "animals", scope: i18n_scope
                       p = t("animals_details", scope: i18n_scope).html_safe
                   li
-                    = image_tag "icons/chat", class: "mr-3"
+                    = image_tag "icons/chat", class: "mr-3", loading: "lazy"
                     .info
                       .is-size-5
                         strong = t "contact", scope: i18n_scope
@@ -89,6 +89,3 @@ section.unit__page
             = render "units/booking_form", locals: { unit: @unit }
             span#current_unit data-unit-id="#{@unit.id}"
       hr
-
-javascript:
-  document.body.style.visibility = 'visible'

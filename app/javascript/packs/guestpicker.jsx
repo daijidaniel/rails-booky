@@ -156,7 +156,7 @@ export default class GuestPicker extends Component {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('turbolinks:load', () => {
   ReactDOM.render(
     <GuestPicker />,
     document.getElementById("guestpicker").appendChild(document.createElement('div'))

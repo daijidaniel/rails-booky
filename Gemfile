@@ -33,6 +33,7 @@ gem 'money-rails', '~>1.12'
 gem 'image_processing'
 gem 'humanize'
 gem 'dotenv-rails'
+gem 'byebug'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

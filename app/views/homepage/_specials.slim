@@ -5,7 +5,7 @@
     .card.rounded
       .card-image
         figure.image.is-16by9
-          = image_tag 'specials/b2b'
+          = image_tag 'specials/b2b', loading: "lazy"
       .card-content
         .content 
           p.subtitle = t 'specials.b2b', scope: i18n_scope
@@ -13,7 +13,7 @@
     .card.rounded
       .card-image
         figure.image.is-16by9
-          = image_tag 'specials/photoshoot'
+          = image_tag 'specials/photoshoot', loading: "lazy"
       .card-content
         .content 
           p.subtitle = t 'specials.photoshoot', scope: i18n_scope
@@ -21,7 +21,7 @@
     .card.rounded
       .card-image
         figure.image.is-16by9
-          = image_tag 'specials/ocassions'
+          = image_tag 'specials/ocassions', loading: "lazy"
       .card-content
         .content 
           p.subtitle = t 'specials.ocassions', scope: i18n_scope

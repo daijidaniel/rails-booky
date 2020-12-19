@@ -6,7 +6,7 @@
   .booking__info
     .booking__info-image
       - if unit.images.attached?
-        = image_tag url_for unit.images.first 
+        = image_tag url_for(unit.images.first), loading: "lazy"
     .booking__info-content style="flex-grow: 3;"
       = link_to booking_path(id: booking.id), method: :delete, class: "is-danger", style: "float: right" do
         span

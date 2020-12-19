@@ -5,10 +5,17 @@ require("channels")
 require("trix")
 require("@rails/actiontext")
 
+
+
 window.onscroll = (event) =>  {
   var top =   window.pageYOffset || document.documentElement.scrollTop;
   let nav = document.querySelector("nav");
-  document.querySelector("#searchnav").style.opacity = top / 100;
+
+  let navsearch = document.querySelectorAll("#searchnav");
+
+  navsearch.forEach((n) => {
+    n.style.opacity = top / 100;
+  })
   var hero = document.querySelector("#herosearch");
   if(hero) {
     hero.style.opacity = 1 - (top / 100);

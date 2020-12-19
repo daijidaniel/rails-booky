@@ -28,7 +28,7 @@
 
   &-search {
     position: relative;
-    
+
     div {
       // height: 60px;
       div.datetimepicker-dummy-wrapper {
@@ -167,13 +167,13 @@ section.attractions {
     background: asset-url('hero_mob.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    height: 90vh;
 
     .hero__gradient {
       z-index: 1;
       height: 100%;
       width: 100vw;
-      background: linear-gradient(180deg, #484848 0%, rgba(255, 255, 255, 0) 52.71%), linear-gradient(180deg, rgba(255, 255, 255, 0) 74.48%, #FFFFFF 100%);
+      // background: linear-gradient(180deg, #484848 0%, rgba(255, 255, 255, 0) 52.71%), linear-gradient(180deg, rgba(255, 255, 255, 0) 74.48%, #FFFFFF 100%);
     }
     .hero__content {
       .container {
@@ -184,8 +184,8 @@ section.attractions {
         margin-top: 20%;
         z-index: 10;
         h1 {
-          font-size: 2rem;
-          font-weight: 500;
+          font-size: 36pt;
+          font-weight: bold;
         }
       }
     }

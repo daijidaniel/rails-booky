@@ -1,0 +1,15 @@
+- i18n_scope = 'units/index'
+
+.units__section.container
+  h1.title.is-size-2.has-text-centered = t('available', scope: i18n_scope)
+  .columns.is-multiline
+    - @units.each do |unit|
+      .column.is-half
+        .card.p-5
+          .card-image
+            figure.image.is-16by9
+              = image_tag url_for(unit.images.first), loading: "lazy"
+          .card-content
+            .content 
+              .title = unit.name
+              p.subtitle = unit.description.body&.to_plain_text&.truncate(50)

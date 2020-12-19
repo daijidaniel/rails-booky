@@ -19,16 +19,16 @@ section.tents
     .tents__content-features.has-mt-72
       .columns
         .column.has-text-centered
-          = image_tag 'features/tent'
+          = image_tag 'features/tent', loading: "lazy"
           p.subtitle.mt-2.is-bold = t 'tents.about_1', scope: i18n_scope
         .column.has-text-centered
-          = image_tag 'features/trees'
+          = image_tag 'features/trees', loading: "lazy"
           p.subtitle.mt-2.is-bold = t 'tents.about_2', scope: i18n_scope
         .column.has-text-centered
-          = image_tag 'features/bath'
+          = image_tag 'features/bath', loading: "lazy"
           p.subtitle.mt-2.is-bold = t 'tents.about_3', scope: i18n_scope
         .column.has-text-centered
-          = image_tag 'features/flower'
+          = image_tag 'features/flower', loading: "lazy"
           p.subtitle.mt-2.is-bold = t 'tents.about_4', scope: i18n_scope
 
 section.offer
@@ -43,7 +43,7 @@ section.offer
             .card.rounded
               .card-image
                 figure.image.is-16by9
-                  = image_tag url_for(unit.images.first)
+                  = image_tag url_for(unit.images.first), loading: "lazy"
               .card-content
                 .content 
                   .title = unit.name
