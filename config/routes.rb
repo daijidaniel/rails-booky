@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   scope '(:locale)', locale: /en|pl/ do
-    root "homepage#index"
+    root "static_pages#inprogress"
+    get 'home', to: "homepage#index"
     devise_for :users
     
     resources :units, only: %i[ index show ]
