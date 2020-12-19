@@ -26,7 +26,9 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params_parsed)
     units = Unit.where(id: params[:booking][:unit_id]) if params[:booking][:unit_id]
-    @booking.units << units
+    units.each do |unit|
+      @booking.units << unit
+    end
 
     respond_to do |format|
       if @booking.save
