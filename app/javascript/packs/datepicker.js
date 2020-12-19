@@ -1,6 +1,6 @@
 import bulmaCalendar from "bulma-calendar/dist/js/bulma-calendar.min.js";
 
-var host = "https://kimuraglamping.pl/"
+var host = "https://kimuraglamping.pl"
 document.addEventListener("turbolinks:load", function(event) {
   // var booked_dates = resp.map((d) => new Date(d));
   // console.log(booked_dates);
