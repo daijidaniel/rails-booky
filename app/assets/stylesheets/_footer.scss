@@ -1,7 +1,9 @@
 footer {
   z-index: 0;
-  background: map-get($booking, 'gray-10');
   cursor: auto !important;
+  hr {
+    border-color: map-get($booking, 'gray-20');
+  }
 }
 
 .footer__links {
@@ -9,7 +11,7 @@ footer {
 
   li {
     a {
-      color: map-get($booking, "gray-20") !important;
+      color: map-get($booking, "gray-30") !important;
       text-decoration: none;
 
       &:hover {

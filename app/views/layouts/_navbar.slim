@@ -7,7 +7,7 @@ nav.navbar role="navigation" aria-label="main navigation"
             input.input.input__search-input placeholder="Search for something"
             span.input__search-icon
 
-      .hide-touch
+      .hide-touch style="display: flex; align-items: center"
         a.navbar-item href="#{root_path}"
           | 🇬🇧 / 🇵🇱
 
@@ -18,7 +18,10 @@ nav.navbar role="navigation" aria-label="main navigation"
           span aria-hidden="true"
 
     .navbar-menu id="navbarBasicExample"
-      .navbar-start
+      .navbar-start style="width: 100%; display: flex; justify-content: center"
+        .hero__content-searchnav.has-text-centered.hide-touch.m-2#searchnav style="width: 80%"
+          input.input.hero__content-search-input placeholder="Pick a date" type="date" name="booking[date]" style="height: initial"
+          span#current_unit data-unit-id="?id=all"
       .navbar-end
         .navbar-item
           .buttons

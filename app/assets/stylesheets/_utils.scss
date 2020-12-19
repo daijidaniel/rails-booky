@@ -195,6 +195,7 @@
 }
 
 .card.rounded {
+  background: transparent;
   box-shadow: none;
   cursor: pointer;
   &::hover {

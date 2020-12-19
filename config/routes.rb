@@ -11,9 +11,10 @@ Rails.application.routes.draw do
     resources :payments, only: %i[ index create ]
     resources :addresses, only: %i[ create index ]
     resources :payment_notify, only: %i[ create ]
-    resources :available_dates, only: %i[ show ]
+    resources :available_dates, only: %i[ index show ]
     resources :order_completed, only: %i[ index ]
-
+    resources :contact_form, only: %i[ create ]
+    
     namespace :admin do
       root "units#index"
 

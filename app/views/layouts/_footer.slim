@@ -1,21 +1,43 @@
 - i18n_scope = "footer"
 
 footer.p-5
+  hr.is-gray-20
   .container
     .columns
       .column
-        h3.title = t "follow", scope: i18n_scope
-        = image_tag "icons/ig_logo", class: "mr-5"
-        = image_tag "icons/fb_logo"
+        .brand__section
+          = image_tag "logo-gray", class: "brand__section-logo"
+          .mt-2
+            p © Kimura Glamping 2020
+            p = t 'rights_reserved', scope: i18n_scope
+          .brand__section-socialmedia.mt-5
+            = image_tag "icons/ig_logo", class: "mr-5"
+            = image_tag "icons/fb_logo"
       .column
         h3.title = t "help_center", scope: i18n_scope
         ul.content.footer__links
-          li = link_to t('contact', scope: i18n_scope), "", class: "footer__link"
+          /li = link_to t('contact', scope: i18n_scope), "", class: "footer__link"
           li = link_to t('tos', scope: i18n_scope), "", class: "footer__link"
           li = link_to t('privacy', scope: i18n_scope), "", class: "footer__link"
-          li = link_to t('my_account', scope: i18n_scope), "", class: "footer__link"
+          /li = link_to t('my_account', scope: i18n_scope), "", class: "footer__link"
           li = link_to t('faq', scope: i18n_scope), "", class: "footer__link"
           li = link_to t('cancel', scope: i18n_scope), "", class: "footer__link"
+      .column
+        h3.title = t "products", scope: i18n_scope
+        ul.content.footer__links
+          li = link_to "Amaterasu", unit_path('amaterasu'), class: "footer__link"
+          li = link_to "Benzaiten", unit_path('benzaiten'), class: "footer__link"
+          li = link_to "Tenjin", unit_path('tenjin'), class: "footer__link"
+          li = link_to "Hotei", unit_path('hotei'), class: "footer__link"
+          li = link_to t('b2b', scope: i18n_scope), "", class: "footer__link"
+          li = link_to t('photoshoot', scope: i18n_scope), "", class: "footer__link"
+          li = link_to t('occasional_party', scope: i18n_scope), "", class: "footer__link"
+          li = link_to t('vouchers', scope: i18n_scope), "", class: "footer__link"
+          
+      .column
+        h3.title = t "intouch", scope: i18n_scope
+        = render 'layouts/contact_form'
+
     hr.is-gray
       p.is-centered-middle
         | Designed and developed by &nbsp;

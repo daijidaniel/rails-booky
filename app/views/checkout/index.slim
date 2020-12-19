@@ -9,15 +9,18 @@ section.checkout__head
 section.booking__finalize.mb-5
   .container
     .columns
-      .column.is-two-thirds
-        /= current_bookings.last.units.inspect
-        - current_bookings.each do |booking|
-          = render 'checkout/booking_card', locals: { booking: booking }
-          = render 'checkout/additional_item_form', locals: { booking: booking }
+      - if !current_bookings
+        .column
+          p Cart Empty!
+      - else
+        .column.is-two-thirds
+          - current_bookings.each do |booking|
+            = render 'checkout/booking_card', locals: { booking: booking }
+            = render 'checkout/additional_item_form', locals: { booking: booking }
 
-      .column
-        = render 'checkout/summary', locals: { bookings: current_bookings }
-        = link_to t('continue', scope: i18n_scope), addresses_path, class: "button is-fullwidth is-primary mt-5"
+        .column
+          = render 'checkout/summary', locals: { bookings: current_bookings }
+          = link_to t('continue', scope: i18n_scope), addresses_path, class: "button is-fullwidth is-primary mt-5"
 
 = javascript_pack_tag 'quantity_selector', 'data-turbolinks-track': 'reload'
 = javascript_pack_tag 'variants_selector', 'data-turbolinks-track': 'reload'

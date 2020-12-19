@@ -1,0 +1,27 @@
+- i18n_scope = 'homepage'
+
+.columns
+  .column
+    .card.rounded
+      .card-image
+        figure.image.is-16by9
+          = image_tag 'specials/b2b'
+      .card-content
+        .content 
+          p.subtitle = t 'specials.b2b', scope: i18n_scope
+  .column
+    .card.rounded
+      .card-image
+        figure.image.is-16by9
+          = image_tag 'specials/photoshoot'
+      .card-content
+        .content 
+          p.subtitle = t 'specials.photoshoot', scope: i18n_scope
+  .column
+    .card.rounded
+      .card-image
+        figure.image.is-16by9
+          = image_tag 'specials/ocassions'
+      .card-content
+        .content 
+          p.subtitle = t 'specials.ocassions', scope: i18n_scope

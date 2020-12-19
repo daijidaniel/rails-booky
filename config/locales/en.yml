@@ -1,6 +1,20 @@
 en:
   navbar:
   footer:
+    name: Full name
+    email: Email
+    phone: Phone number
+    message: Message
+    submit: Submit
+    privacy_policy: "  I agree to the processing of personal data provided according to <a href='#'> Privacy Policy</a>"
+    tos_accept: "  I’ve read and fully accept the <a href='#'> Terms of service </a>"
+    products: Products
+    intouch: Let’s get in touch
+    b2b: B2B events
+    photoshoot: Photoshoot
+    occasional_party: Occasional party
+    vouchers: Vouchers
+    rights_reserved: All rights reserved.
     follow: Follow us
     help_center: Help center
     contact: Contact us
@@ -8,5 +22,5 @@ en:
     privacy: Privacy Policy (GDPR)
     my_account: My account
     faq: FAQ
-    cancel: Cancel the booking
+    cancel: Cancel booking
   address_error: Fill in your address before continuing

@@ -1,6 +1,6 @@
 import bulmaCalendar from "bulma-calendar/dist/js/bulma-calendar.min.js";
 
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("turbolinks:load", function(event) {
   // var booked_dates = resp.map((d) => new Date(d));
   // console.log(booked_dates);
   var unit_id = document.querySelector("#current_unit").dataset['unitId'];

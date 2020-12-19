@@ -1,0 +1,36 @@
+- i18n_scope = 'footer'
+
+= form_with url: contact_form_index_path do |f|
+  .field
+    .control
+      = f.text_field :name, placeholder: t('name', scope: i18n_scope), class: "input sp_input"
+
+  .field
+    .control
+      = f.email_field :email, placeholder: t('email', scope: i18n_scope), class: "input sp_input"
+
+  .field
+    .control
+      = f.number_field :phone, placeholder: t('phone', scope: i18n_scope), class: "input sp_input"
+
+  .field
+    .control
+      = f.text_area :message, placeholder: t('message', scope: i18n_scope), class: "input sp_input", rows: "4", columns: "50"
+
+  .field
+    .control
+      label.checkbox
+        = f.label :privacy_policy do
+          = f.check_box :privacy_policy
+          = t('privacy_policy', scope: i18n_scope).html_safe
+
+  .field
+    .control
+      label.checkbox
+        = f.label :tos do
+          = f.check_box :tos
+          = t('tos_accept', scope: i18n_scope).html_safe
+
+  .field
+    .control
+      = f.submit t('submit', scope: i18n_scope), class: "button is-link"

@@ -4,8 +4,10 @@ section.hero
   .hero__gradient
   .hero__content
     .container
-      .hero__content-search.has-text-centered.hide-touch
-        input.input.hero__content-search-input
+      .hero__content-search.has-text-centered.hide-touch#herosearch
+        input.input.hero__content-search-input placeholder="Pick a date" type="date" name="booking[date]"
+        span#current_unit data-unit-id="?id=all"
+
       .hero__content-title.p-5
         h1.title = t 'hero.discover', scope: i18n_scope
 
@@ -15,7 +17,7 @@ section.tents
       h1.title = t 'tents.about_us', scope: i18n_scope
       p.subtitle = t 'tents.about_us_subtitle', scope: i18n_scope
     .tents__content-features.has-mt-72
-      .columns.is-mobile
+      .columns
         .column.has-text-centered
           = image_tag 'features/tent'
           p.subtitle.mt-2.is-bold = t 'tents.about_1', scope: i18n_scope
@@ -58,31 +60,7 @@ section.specials.p-5
   .specials__section.container
     h1.title  = t 'specials.title', scope: i18n_scope
     .specials__section-events
-      .columns
-        .column
-          .card.rounded
-            .card-image
-              figure.image.is-16by9
-                = image_tag 'specials/b2b'
-            .card-content
-              .content 
-                p.subtitle = t 'specials.b2b', scope: i18n_scope
-        .column
-          .card.rounded
-            .card-image
-              figure.image.is-16by9
-                = image_tag 'specials/photoshoot'
-            .card-content
-              .content 
-                p.subtitle = t 'specials.photoshoot', scope: i18n_scope
-        .column
-          .card.rounded
-            .card-image
-              figure.image.is-16by9
-                = image_tag 'specials/ocassions'
-            .card-content
-              .content 
-                p.subtitle = t 'specials.ocassions', scope: i18n_scope
+      = render 'homepage/specials'
 
 section.awards.p-5
   .awards__section.container
@@ -90,10 +68,19 @@ section.awards.p-5
     .awards__section-cards
       = render 'homepage/awards'
 
-section.location.p-5
-
+section.location.mt-5.has-text-centered
   .location__section.container
-    = image_tag 'location'
-    .card.rounded
-      iframe id="gmap_canvas" src="https://maps.google.com/maps?q=kimuraglamping&t=&z=11&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+    .location__gradient
+    .columns.is-fullheight
+      .column.left_column_padded
+        h1.mb-5.pb-5.title.is-size-2 = t 'location.located_in',  scope: i18n_scope
+        h2.title = t 'location.warsaw',  scope: i18n_scope
+        h2.title = t 'location.gdansk',  scope: i18n_scope
+        h2.title = t 'location.wroclaw',  scope: i18n_scope
+        h2.title = t 'location.poznan',  scope: i18n_scope
+        h2.title = t 'location.krakow',  scope: i18n_scope
+
+      .column.is-fullheight
+        .card.rounded.is-fullheight.gmap_canvas_card
+          iframe id="gmap_canvas" src="https://maps.google.com/maps?q=kimuraglamping&t=&z=11&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
 
