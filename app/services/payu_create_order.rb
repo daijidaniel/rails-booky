@@ -25,8 +25,8 @@ class PayuCreateOrder
           "lastName": user.lname
         },
         "products": all_bookings,
-        "redirectUri": "https://#{ENV['HOST']}/?payment=#{payment.payu_id}",
-        "continueUrl": "https://#{ENV['HOST']}/?payment=#{payment.payu_id}"
+        "redirectUri": "https://#{ENV['HOST']}/?payment=#{payment.id}",
+        "continueUrl": "https://#{ENV['HOST']}/?payment=#{payment.id}"
       })
 
       # Create the HTTP objects
