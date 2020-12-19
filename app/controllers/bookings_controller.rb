@@ -33,7 +33,9 @@ class BookingsController < ApplicationController
     respond_to do |format|
       if @booking.save
         if user_signed_in?
-          @booking.update user: current_user, units: [ units ]
+          units.each do |unit|
+            @booking.update user: current_user, units: [ unit ]
+          end
         else
           cookies[:booking_id] = @booking.id
         end
