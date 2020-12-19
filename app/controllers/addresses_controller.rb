@@ -22,11 +22,11 @@ class AddressesController < ApplicationController
 
   def address_params
     {
-      line1: params[:address][:line1],
-      line2: params[:address][:line1],
-      city: params[:address][:city],
-      postcode: params[:address][:postcode],
-      phone: params[:address][:phone],
+      line1: params[:line1],
+      line2: params[:line1],
+      city: params[:city],
+      postcode: params[:postcode],
+      phone: params[:phone],
       country: "PL",
       user_id: current_user.id
     }
