@@ -1,5 +1,5 @@
 - i18n_scope = "units/show"
-- images = @unit.images.last(5)
+- images = u.images.sort_by {|obj| obj.metadata["height"]}[0..4]
 
 section.unit__page
   .only-touch
