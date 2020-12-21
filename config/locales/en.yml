@@ -27,3 +27,7 @@ en:
     faq: FAQ
     cancel: Cancel booking
   address_error: Fill in your address before continuing
+  mail:
+    order_placed: Your order has been placed
+    order_paid: Payment successful!
+    new_booking:  New booking!

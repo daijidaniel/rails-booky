@@ -9,4 +9,8 @@ class User < ApplicationRecord
   has_many :payments
   
   enum auth_level: %i[ user admin ]
+
+  def name
+    fname.to_s + " " + lname.to_s
+  end
 end
