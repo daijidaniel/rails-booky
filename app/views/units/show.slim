@@ -8,10 +8,10 @@ section.unit__page
         = image_tag url_for(image)
   .unit__page-images.hide-touch
     .container
-      .tile.is-ancestor
+      .tile.is-ancestor 
         .tile.is-parent.is-vertical.is-6
           .tile.is-child.is-primary
-            = image_tag url_for(images[0]), loading: "lazy"
+            = image_tag url_for(images[0]), loading: "lazy", style: "width: 100%; object-fit: cover"
         .tile.is-parent.is-vertical.is-3
           .tile.is-child.is-primary
             = image_tag url_for(images[1]), loading: "lazy"

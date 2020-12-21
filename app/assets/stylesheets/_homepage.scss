@@ -84,6 +84,10 @@ section.attractions {
 
   .attractions__content{
     &-cards .columns {
+      &::-webkit-scrollbar {
+        width: 0px;  /* Remove scrollbar space */
+        background: transparent;  /* Optional: just make scrollbar invisible */
+      } 
       scroll-snap-type: x mandatory !important;
       overflow-x: scroll !important;
       display: flex !important;
