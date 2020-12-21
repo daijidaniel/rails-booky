@@ -27,6 +27,12 @@
       .control
         = f.label :phone, class: "label"
         = f.text_field :phone, class: "input", required: true
+    .field
+      .control
+        = f.label :nip, class: "label"
+        = f.text_field :vat_id, class: "input"
+        p.help = t 'faktura_required', scope: i18n_scope
+
     = f.submit t('save_and_continue', scope: i18n_scope), class: "button is-fullwidth is-primary mt-5"
 
   

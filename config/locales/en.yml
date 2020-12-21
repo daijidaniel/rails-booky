@@ -1,5 +1,8 @@
 en:
   navbar:
+    contact: Contact
+    booking: Bookings
+    login: Login
   footer:
     name: Full name
     email: Email

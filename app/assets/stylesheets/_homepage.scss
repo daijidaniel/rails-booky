@@ -74,7 +74,7 @@
   position: absolute;
   height: 100%;
   width: 100vw;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.3);
 }
 
 section.attractions {
@@ -272,4 +272,8 @@ section.attractions {
       }
     }
   }
+}
+
+.datetimepicker-dummy-input::placeholder {
+  color: black !important;
 }

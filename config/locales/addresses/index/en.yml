@@ -3,3 +3,4 @@ en:
     address: Address
     billing_address: Enter your billing address
     save_and_continue: Save and continue
+    faktura_required: Enter NIP number if faktura is required

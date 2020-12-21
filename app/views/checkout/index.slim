@@ -3,16 +3,18 @@
 section.checkout__head
   .container
     .checkout__head-customize
-      h1.title = t 'customize_booking', scope: i18n_scope
-      h2.subtitle = t 'dream_getaway', scope: i18n_scope
+      - if !current_bookings.any?
+        . style="height: 50vh;"
+          h1.title = t 'cart_empty', scope: i18n_scope
+          h1.subtitle = t 'add_items', scope: i18n_scope
+      - else
+        h1.title = t 'customize_booking', scope: i18n_scope
+        h2.subtitle = t 'dream_getaway', scope: i18n_scope
 
 section.booking__finalize.mb-5
   .container
     .columns
-      - if !current_bookings
-        .column
-          p Cart Empty!
-      - else
+      - if current_bookings.any?
         .column.is-two-thirds
           - current_bookings.each do |booking|
             = render 'checkout/booking_card', locals: { booking: booking }
@@ -22,27 +24,28 @@ section.booking__finalize.mb-5
           = render 'checkout/summary', locals: { bookings: current_bookings }
           = link_to t('continue', scope: i18n_scope), addresses_path, class: "button is-fullwidth is-primary mt-5"
 
-= javascript_pack_tag 'quantity_selector', 'data-turbolinks-track': 'reload'
-= javascript_pack_tag 'variants_selector', 'data-turbolinks-track': 'reload'
+- if current_bookings.any?
+  = javascript_pack_tag 'quantity_selector', 'data-turbolinks-track': 'reload'
+  = javascript_pack_tag 'variants_selector', 'data-turbolinks-track': 'reload'
 
-javascript:
-  const buttons = document.getElementsByClassName("add-button");
+  javascript:
+    const buttons = document.getElementsByClassName("add-button");
 
-  [].forEach.call(buttons, function(el) {
-    el.addEventListener("click", (e) => {
-      e.preventDefault();
+    [].forEach.call(buttons, function(el) {
+      el.addEventListener("click", (e) => {
+        e.preventDefault();
 
-      console.log(el);
-      var modal = el.offsetParent.nextElementSibling;
-      modal.classList.toggle("is-active");
-      
-      modal.querySelectorAll("[data-bulma-modal='close'], .modal-background").forEach(function(e) {
-        e.addEventListener("click", function(event) {
-          event.preventDefault();
+        console.log(el);
+        var modal = el.offsetParent.nextElementSibling;
+        modal.classList.toggle("is-active");
+        
+        modal.querySelectorAll("[data-bulma-modal='close'], .modal-background").forEach(function(e) {
+          e.addEventListener("click", function(event) {
+            event.preventDefault();
 
-          modal.classList.toggle('is-active');
-        })
-      });
+            modal.classList.toggle('is-active');
+          })
+        });
 
+      })
     })
-  })

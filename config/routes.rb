@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   scope '(:locale)', locale: /en|pl/ do
-    root "static_pages#inprogress"
-    get 'home', to: "homepage#index"
+    if ENV['INIPROGRESS'] == true
+      root "static_pages#inprogress"
+      get 'home', to: "homepage#index"
+    else
+      root "homepage#index"
+    end
+
     devise_for :users
     
     resources :units, only: %i[ index show ]

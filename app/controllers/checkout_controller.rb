@@ -10,7 +10,6 @@ class CheckoutController < ApplicationController
       booking = Booking.find_by(id: booking_id)
 
       if booking
-        puts "\n\n\n\n\n\n #{current_user.bookings.inspect} \n\n"
         unless booking_exists? booking.id
           current_user.bookings << booking
           cookies.delete :booking_id
