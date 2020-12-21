@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   scope '(:locale)', locale: /en|pl/ do
-    if ENV['INIPROGRESS'] == true
+    if ENV['INPROGRESS'] == "true"
       root "static_pages#inprogress"
       get 'home', to: "homepage#index"
     else
