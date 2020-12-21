@@ -1,0 +1,26 @@
+en:
+  checkout/index:
+    dream_getaway: Jesteś o krok dalej do wymarzonego wyjazdu
+    customize_booking: Dostosuj udogodnienia
+    dates_chosen: Wybrana data
+    check_in: Zameldowanie
+    check_out: Wymeldowanie
+    total: Łącznie do zapłaty
+    guests: Goście
+    subtotal: "<b>Razem: </b>"
+    additional_items: Dodatkowe udogodnienia
+    additional_item_details: Nie zapomnij dodać śniadania lub relaksujących masaży
+    adults: Dorośli
+    adult_info: +200 zł / za dodatkową osobę
+    children: Dzieci
+    children_info: +100 zł / za dodatkowe dziecko
+    summary: Podsumowanie
+    addons: Dodatki
+    save: Zapisz
+    cancel: Anuluj
+    choose: Wybierz dodatki
+    subtotal: Razem
+    vat: wliczony VAT
+    extra_adult: Dodatkowy dorosły
+    extra_child: Dodatkowe dziecko
+    continue: Kontynuuj

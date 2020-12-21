@@ -33,7 +33,8 @@ gem 'money-rails', '~>1.12'
 gem 'image_processing'
 gem 'humanize'
 gem 'dotenv-rails'
-gem 'byebug'
+gem 'google-api-client', '~> 0.34'
+gem 'googleauth'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

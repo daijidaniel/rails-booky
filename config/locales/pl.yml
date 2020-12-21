@@ -1,3 +1,26 @@
 pl:
   navbar:
-    
+  footer:
+    name: Imię i nazwisko
+    email: Email
+    phone: Nr telefonu
+    message: Wiadomość
+    submit: Wyślij
+    privacy_policy: "Wyrażam zgodę na przetwarzania moich danych zgodnie z<a href='#'> Polityką prywatności</a>"
+    tos_accept: "Akceptuję w pełni<a href='#'> Regulamin </a>"
+    products: Produkty
+    intouch: Pozostańmy w kontakcie
+    b2b: Eventy B2B
+    photoshoot: Sesje zdjęciowe
+    occasional_party: Imprezy okolicznościowe
+    vouchers: Vouchery
+    rights_reserved: Wszelkie prawa zastrzeżone.
+    follow: Obserwuj nas
+    help_center: Pomoc
+    contact: Skontaktuj się
+    tos: Regulamin
+    privacy: Polityka prywatności (RODO)
+    my_account: Moje konto
+    faq: Najczęstsze pytania
+    cancel: Anuluj rezerwację
+  address_error: Uzupełnij poprawnie adres email

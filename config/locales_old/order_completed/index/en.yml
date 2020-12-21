@@ -1,0 +1,4 @@
+en:
+  order_completed/index:
+    order: Your order
+    done: Details of your order

@@ -1,2 +1,5 @@
 pl:
-  
+  addresses/index:
+    address: Adres
+    billing_address: Wprowadź dane do rozliczenia
+    save_and_continue: Zapisz i kontynuuj

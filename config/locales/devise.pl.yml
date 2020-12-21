@@ -1,0 +1,63 @@
+pl:
+  devise:
+    confirmations:
+      confirmed: "Twój adres email został potwierdzony"
+      send_instructions: "W ciągu kilku minut otrzymasz e-mail z instrukcją, jak potwierdzić swój adres e-mail."
+      send_paranoid_instructions: "Jeśli Twój adres e-mail istnieje w naszej bazie danych, w ciągu kilku minut otrzymasz wiadomość e-mail z instrukcją, jak potwierdzić swój adres e-mail."
+    failure:
+      already_authenticated: "Twoje konto jest zarejestrowane."
+      inactive: "Twoje konto nie jest jeszcze aktywne."
+      invalid: "Niepoprawne %{authentication_keys} lub hasło."
+      locked: "Twoje konto jest zablokowane, skontaktuj się z obsługą."
+      last_attempt: "Masz jeszcze jedną próbę zanim twoje konto zostanie zamknięte."
+      not_found_in_database: "Niepoprawne %{authentication_keys} lub hasło."
+      timeout: "Twoja sesja wygasła. Zarejestruj się ponownie od początku."
+      unauthenticated: "Aby kontynuować, musisz się zalogować lub zarejestrować."
+      unconfirmed: "Musisz zatwierdzić adres email, aby móc kontynować"
+    mailer:
+      confirmation_instructions:
+        subject: "Instrukcje potwierdzania"
+      reset_password_instructions:
+        subject: "Instrukcje resetowania hasła"
+      unlock_instructions:
+        subject: "Instrukcje odblokowywania"
+      email_changed:
+        subject: "Email został zmieniony"
+      password_change:
+        subject: "Password zostało zmienione"
+    omniauth_callbacks:
+      failure: "Nie można było Cię potwierdzić poprzez %{kind}, ponieważ \"%{reason}\"."
+      success: "Pomyślnie potwierdzono konto przez %{kind}."
+    passwords:
+      no_token: "Nie możesz uzyskać dostępu do tej strony bez otrzymania e-maila z hasłem resetowania. Jeśli jesteś tu z wiadomości e-mail z hasłem, upewnij się, że użyto pełnego adresu URL."
+      send_instructions: "W ciągu kilku minut otrzymasz wiadomość e-mail z instrukcją, jak zresetować swoje hasło."
+      send_paranoid_instructions: "Jeśli Twój adres e-mail istnieje w naszej bazie danych, w ciągu kilku minut otrzymasz link do odzyskania hasła na swój adres e-mail."
+      updated: "Twoje hasło zostało pomyślnie zmienione. Obecnie jesteś zalogowana/y"
+      updated_not_active: "Twoje hasło zostało pomyślnie zmienione."
+    registrations:
+      destroyed: "Żegnaj! Twoje konto zostało pomyślnie anulowane. Mamy nadzieję, że wkrótce znów się zobaczymy."
+      signed_up: "Witaj! Jesteś pomyślnie zarejestrowana/y"
+      signed_up_but_inactive: "Zarejestrowano Cię z powodzeniem. Jednak nie mogliśmy Cię zalogować, ponieważ Twoje konto nie jest jeszcze aktywne."
+      signed_up_but_locked: "Zarejestrowano Cię z powodzeniem. Jednak nie mogliśmy Cię zalogować, ponieważ Twoje konto jest zablokowane"
+      signed_up_but_unconfirmed: "Wiadomość z linkiem potwierdzającym została wysłana na Twój adres e-mail. Proszę kliknąć na ten link, aby aktywować swoje konto."
+      update_needs_confirmation: "Pomyślnie zaktualizowano Twoje konto, ale musimy zweryfikować Twój nowy adres e-mail. Proszę sprawdzić swój adres e-mail i kliknąć na link potwierdzający, aby potwierdzić nowy adres e-mail."
+      updated: "Twoje konto zostało pomyślnie zaktualizowane."
+      updated_but_not_signed_in: "Twoje konto zostało pomyślnie zaktualizowane, ale ponieważ hasło zostało zmienione, musisz zalogować się ponownie."
+    sessions:
+      signed_in: "Zalogowano Cię pomyślnie."
+      signed_out: "Wylogowano"
+      already_signed_out: "Wylogowano już pomyślnie"
+    unlocks:
+      send_instructions: "W ciągu kilku minut otrzymasz wiadomość e-mail z instrukcją, jak odblokować konto."
+      send_paranoid_instructions: "Jeśli Twoje konto istnieje, w ciągu kilku minut otrzymasz wiadomość e-mail z instrukcją, jak je odblokować."
+      unlocked: "Twoje konto zostało pomyślnie odblokowane. Proszę się zalogować, aby kontynuować."
+  errors:
+    messages:
+      already_confirmed: "już potwierdzono wcześniej, proszę spróbować się wpisać"
+      confirmation_period_expired: "należy potwierdzić w ciągu %{period}, proszę zażądać nowego"
+      expired: "wygasło, proszę poprosić o nowy"
+      not_found: "nie znaleziono"
+      not_locked: "nie było zablokowane"
+      not_saved:
+        one: "1 błąd zablokował %{resource} przed pomyślnym zapisaniem:"
+        other: "%{count} błędy zablokowały %{resource} przed pomyślnym zapisaniem:"

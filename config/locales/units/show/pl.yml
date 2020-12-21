@@ -1,0 +1,21 @@
+en:
+  units/show:
+    night_hours: Godziny doby hotelowej
+    timing: od <b>15:00</b> do <b>11:00</b> następnego dnia
+    cancellation: Warunki anulowania pobytu
+    cancellation_details: Znajdziesz więcej w szczegółach
+    visit_terms: Warunki pobytu
+    visit_terms_details: Znajdziesz więcej w szczegółach
+    animals: Niestety nie przyjmujemy zwierząt
+    animals_details: W przypadku szczególnej okazji <a href="#">skontaktuj się</a>
+    contact: W przypadku dodatkowych pytań
+    contact_details: <a href="#">zadzwoń</a> do nas lub <a href="#">wyślij wiadomość</a>
+    covid_title: Obiekt w pełni dostosowany pod wymagania COVID-19 😷 
+    covid_description: Namiot jest dezynfekowany i wietrzony, a nasz teren znajduje się w środku lasu bez możliwości ingerencji niepożądanych osób z zewnątrz.
+    people_qty: liczba gości
+    book: Zarezerwuj
+    special: Każdy specjalny rodzaj wizyty/niespodzianki może być zaaranżowany 💍
+    special_description: Chętnie pomożemy Ci w zorganizowaniu niezapomnianej imprezy w Kimura Glamping
+    price: cena
+    per_night: za dobę
+    find_dates: Znajdź datę
