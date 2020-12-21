@@ -3,5 +3,5 @@ class Variant < ApplicationRecord
   monetize :price_cents
   has_rich_text :description
 
-  belongs_to :item
+  belongs_to :item, dependent: :destroy
 end

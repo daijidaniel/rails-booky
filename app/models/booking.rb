@@ -2,8 +2,8 @@ class Booking < ApplicationRecord
   ADULT_EXTRA_PRICE = 200
   CHILD_EXTRA_PRICE = 100
 
-  belongs_to :user, required: false, dependent: :destroy
-  belongs_to :payment, required: false, dependent: :destroy
+  belongs_to :user, required: false
+  belongs_to :payment, required: false
 
   has_many :unit_bookings, dependent: :delete_all
   has_many :units, through: :unit_bookings

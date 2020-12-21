@@ -12,7 +12,7 @@ module Admin
       if @unit.update(unit_params)
         redirect_to admin_unit_path(id: @unit.id), flash: { success: 'Unit updated successfully.' }
       else
-        redirect_to admin_additional_item_path(id: @unit.id), flash: { error: @unit.errors }
+        redirect_to admin_unit_path(id: @unit.id), flash: { error: @unit.errors }
       end
     end
 
