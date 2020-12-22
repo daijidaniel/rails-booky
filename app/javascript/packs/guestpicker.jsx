@@ -162,3 +162,4 @@ document.addEventListener('turbolinks:load', () => {
     document.getElementById("guestpicker").appendChild(document.createElement('div'))
   )
 })
+
