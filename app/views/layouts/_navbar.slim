@@ -10,7 +10,8 @@ nav.navbar role="navigation" aria-label="main navigation"
       .hide-touch style="display: flex; align-items: center"
         span
           a.navbar-item href="#{root_path(locale: :en)}" 🇬🇧
-        span /
+        span
+          | /
         span
           a.navbar-item href="#{root_path(locale: :pl)}" 🇵🇱
 
@@ -30,7 +31,7 @@ nav.navbar role="navigation" aria-label="main navigation"
               | /
             span
               a.navbar-item style="font-size: 2.5rem" href="#{root_path(locale: :pl)}" 🇵🇱
-        .hero__content-searchnav.has-text-centered.hide-touch.m-2#searchnav style="width: 80%"
+        /.hero__content-searchnav.has-text-centered.hide-touch.m-2#searchnav style="width: 80%"
           input.input.hero__content-search-input placeholder="Pick a date" type="date" name="booking[date]" style="height: initial"
           span#current_unit data-unit-id="?id=all"
       

@@ -18,8 +18,8 @@ footer.p-5
       .column
         h3.title = t "help_center", scope: i18n_scope
         ul.content.footer__links
-          li = link_to t('tos', scope: i18n_scope), "/terms-of-service", class: "footer__link"
-          li = link_to t('privacy', scope: i18n_scope), "/privacy-policy", class: "footer__link"
+          li = link_to t('tos', scope: i18n_scope), "/terms-of-service", target: "_blank", class: "footer__link"
+          li = link_to t('privacy', scope: i18n_scope), "/privacy-policy", target: "_blank", class: "footer__link"
           li = link_to t('faq', scope: i18n_scope), "/faq", class: "footer__link"
           / li = link_to t('cancel', scope: i18n_scope), "", class: "footer__link"
       .column
@@ -29,9 +29,6 @@ footer.p-5
           li = link_to "Benzaiten", unit_path('benzaiten'), class: "footer__link"
           li = link_to "Tenjin", unit_path('tenjin'), class: "footer__link"
           li = link_to "Hotei", unit_path('hotei'), class: "footer__link"
-          li = link_to t('b2b', scope: i18n_scope), "", class: "footer__link"
-          li = link_to t('photoshoot', scope: i18n_scope), "", class: "footer__link"
-          li = link_to t('occasional_party', scope: i18n_scope), "", class: "footer__link"
           li = link_to t('vouchers', scope: i18n_scope), "", class: "footer__link"
           
       .column
