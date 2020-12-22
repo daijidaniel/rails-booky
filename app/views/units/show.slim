@@ -5,7 +5,7 @@ section.unit__page
   .only-touch
     .unit__page-mobimages
       - @unit.images.each do |image|
-        = image_tag url_for(image)
+        = image_tag url_for(image&.variant(resize_to_limit: [500, 500]))
   .unit__page-images.hide-touch
     .container
       .tile.is-ancestor 
