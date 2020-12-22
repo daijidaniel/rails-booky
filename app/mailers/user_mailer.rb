@@ -1,10 +1,10 @@
 class UserMailer < ApplicationMailer
-  def order_mail_placed payment_id
+  def order_mail_placed payment_id, mail_to
     @payment = Payment.find(payment_id)
     @user = @payment.user
     @title = 'order_placed'
     mail(
-      to: @user.email,
+      to: mail_to,
       subject: t('order_placed', scope: 'mail')
     )
   end

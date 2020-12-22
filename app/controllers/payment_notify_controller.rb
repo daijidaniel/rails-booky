@@ -10,10 +10,13 @@ class PaymentNotifyController < ApplicationController
       payment&.complete! unless payment.paid?
       
       if !payment.sent?
-        UserMailer.order_mail_placed(
-          payment.id
-        ).deliver_now
-        
+        [payment.user.email, ENV["ADMIN_EMAIL"]].each do |email|
+          UserMailer.order_mail_placed(
+            payment.id,
+            email
+          ).deliver_now
+        end
+
         payment.sent!
       end
     elsif status == "CANCELED"
