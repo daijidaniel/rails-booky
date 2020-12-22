@@ -14,7 +14,7 @@
     <% @payment.bookings.each do |booking| %>
       <div class="item">
 
-        <%= image_tag url_for(booking.units.first.images.first) %>
+        <%= image_tag url_for(booking.units.first.images.first.variant(resize_to_limit: [200, 200])) %>
         <h5><%= booking.units.first.name %></h5>
         <p> <%= (booking.end_date.to_date - booking.start_date.to_date).to_i %>
           <span> <%= t('days', scope: 'mail') %></span>
