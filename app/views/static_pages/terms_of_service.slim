@@ -1,0 +1,7 @@
+- i18n_scope = 'tos'
+
+.terms__section style="margin-top: 100px"
+  .container
+    h1.is-size-1 = t 'title', scope: i18n_scope
+    .card.p-5.mt-5
+      = t('content', scope: i18n_scope).html_safe

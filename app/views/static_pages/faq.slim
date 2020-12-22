@@ -1,0 +1,45 @@
+- i18n_scope = 'faq'
+
+.faq__section style="margin-top: 100px"
+  .container
+    h1.title = t 'title', scope: i18n_scope
+    .card.p-5.mt-5
+      h1.title 
+        | 1.  
+        = t 'restarant', scope: i18n_scope
+      p = t 'restaurant_ans', scope: i18n_scope
+    .card.p-5.mt-5
+      h1.title 
+        | 2.  
+        = t 'pets', scope: i18n_scope
+      p = t 'pets_ans', scope: i18n_scope
+    .card.p-5.mt-5
+      h1.title 
+        | 3.  
+        = t 'children', scope: i18n_scope
+      p = t 'children_ans', scope: i18n_scope
+    .card.p-5.mt-5
+      h1.title 
+        | 4.  
+        = t 'alcohol', scope: i18n_scope
+      p = t 'alcohol_ans', scope: i18n_scope
+    .card.p-5.mt-5
+      h1.title 
+        | 5.  
+        = t 'paid', scope: i18n_scope
+      p = t('paid_ans', scope: i18n_scope).html_safe
+    .card.p-5.mt-5
+      h1.title 
+        | 6.  
+        = t 'heating', scope: i18n_scope
+      p = t('heating_ans', scope: i18n_scope).html_safe
+    .card.p-5.mt-5
+      h1.title 
+        | 7.  
+        = t 'cancel', scope: i18n_scope
+      p = t 'cancel_ans', scope: i18n_scope
+    .card.p-5.mt-5
+      h1.title 
+        | 8.  
+        = t 'photo_shoot', scope: i18n_scope
+      p = t 'photo_shoot_ans', scope: i18n_scope

@@ -12,7 +12,7 @@
         .card.p-1.mt-2
           .columns
             .column
-              = image_tag url_for(variant.image), loading: "lazy" if  variant.image.attached?
+              = image_tag url_for(variant.image), loading: "lazy", alt: variant.name if  variant.image.attached?
             .column
               h1.title.is-size-4 = variant.name
               h2.subtitle.is-purple = humanized_money_with_symbol variant.price

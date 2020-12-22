@@ -32,5 +32,9 @@ Rails.application.routes.draw do
         resources :variants, only: %i[ create destroy ]
       end
     end
+
+    get 'terms-of-service', to: 'static_pages#terms_of_service'
+    get 'faq', to: 'static_pages#faq'
+    get 'privacy-policy', to: 'static_pages#privacy_policy'
   end
 end

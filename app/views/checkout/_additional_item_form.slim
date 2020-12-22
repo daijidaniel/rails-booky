@@ -15,7 +15,7 @@
             .card.mt-2.p-2 style="overflow: visible"
               .booking__info
                 .booking__info-image.is-thumbnail
-                  = image_tag(url_for(item.images.first), loading: "lazy")
+                  = image_tag(url_for(item.images.first), loading: "lazy", alt: item.name)
                 .booking__info-content style="flex-grow: 3;"
                   h1.title.is-purple = item.name
                   p.subtitle == item.description
