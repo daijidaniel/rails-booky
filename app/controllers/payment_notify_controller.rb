@@ -9,10 +9,12 @@ class PaymentNotifyController < ApplicationController
     case status
     when "COMPLETED"
       payment&.complete! unless payment.paid?
-      unless payment.confirmation_sent?
+      
+      if !payment.confirmation_sent?
         UserMailer.order_mail_placed(
           payment.id
         ).deliver_now
+        
         payment.confirmation_sent!
       end
     when "CANCELED"
