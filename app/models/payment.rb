@@ -3,7 +3,7 @@ class Payment < ApplicationRecord
   has_many :bookings
 
   enum status: %i[unpaid pending paid cancelled]
-  enum confirmation_sent: %i[confimation_not_sent confimation_sent] 
+  enum confirmation_sent: %i[confimation_not_sent sent] 
 
   def complete!
     update status: :paid
