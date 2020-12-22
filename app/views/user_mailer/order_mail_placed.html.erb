@@ -1,2 +1,37 @@
-<h1>abc</h1>
-<%= @payment %>
+<% total = @payment.bookings.map(&:price).sum %>
+<% vat = total / 8 %>
+<% before_vat = total - vat %>
+
+<div class="email-body">
+  <%= t('hi_thanks', scope: 'mail', user_name: @user.name) %>
+  
+  <%= link_to order_completed_index_url(payment: @payment.id) do %>
+    <h5><%= t('view_order', scope: 'mail') %></h5>
+  <% end %>
+
+  <div class="order">
+
+    <% @payment.bookings.each do |booking| %>
+      <div class="item">
+
+        <%= image_tag url_for(booking.units.first.images.first) %>
+        <h5><%= booking.units.first.name %></h5>
+        <p> <%= (booking.end_date.to_date - booking.start_date.to_date).to_i %>
+          <span> <%= t('days', scope: 'mail') %></span>
+          <b><%= humanized_money_with_symbol booking.price %></b>
+        </p>
+      </div>
+
+      <hr>
+    <% end %>
+    
+    <div class="item item-total">
+      <p>VAT: <%= humanized_money_with_symbol vat %>
+        <br>
+        <b>Total: <%= humanized_money_with_symbol total %></b>
+      </p>
+    </div>
+    
+  </div>
+</div>
+

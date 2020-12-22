@@ -1,4 +1,7 @@
+Rails.application.routes.default_url_options[:host] = ENV["HOST"]
+
 Rails.application.routes.draw do
+
   scope '(:locale)', locale: /en|pl/ do
     if ENV['INPROGRESS'] == "true"
       root "static_pages#inprogress"

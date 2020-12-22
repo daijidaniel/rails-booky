@@ -31,3 +31,6 @@ en:
     order_placed: Your order has been placed
     order_paid: Payment successful!
     new_booking:  New booking!
+    order_update: Order update
+    hi_thanks: Hi there %{user_name}, this is just a quick email to let you know that your order has now been placed, please wait for payment confirmation, Click the button below to view order on our website.
+    days: day(s)
