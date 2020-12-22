@@ -25,7 +25,7 @@ class PayuCreateOrder
           "lastName": user.lname
         },
         "products": all_bookings,
-        "redirectUri": "https://#{ENV['HOST']}/order_completed?payment=#{payment_id}",
+        "redirectUri": "https://#{ }/order_completed?payment=#{payment_id}",
         "continueUrl": "https://#{ENV['HOST']}/order_completed?payment=#{payment_id}"
       })
 
