@@ -6,7 +6,7 @@
     .only-touch
       .unit__page-mobimages
         - @unit.images.each do |image|
-          = image_tag url_for(image&.variant(resize_to_limit: [500, 500])), loading: "lazy", style: "width: 100%; height: 100%; object-fit: cover"
+          = image_tag url_for(image&.variant(resize_to_limit: [500, 500])), loading: "lazy", style: "width: 100%; height: 50vh; object-fit: cover"
     .unit__page-images.hide-touch
       .container
         .tile.is-ancestor 
@@ -30,10 +30,14 @@
         .columns
           .column.is-three-quarters
             .top_title
-              h1.title.is-size-1 = @unit.name
+              h1.title.is-size-1.is-size-2-mobile = @unit.name
               .top_title-price.only-touch
-                h1.title.is-size-2.is-purple.is-bold.has-no-margin = humanized_money_with_symbol @unit.price
-                span per night
+                h1.title.is-size-2.is-size-3-mobile.is-purple.is-bold.has-no-margin = humanized_money_with_symbol @unit.price
+                span = t('per_night', scope: i18n_scope)
+            .card.p-5.only-touch
+              .is-size-4.mb-2 = t 'find_dates', scope: i18n_scope
+              = render "units/booking_form", locals: { unit: @unit }
+              span#current_unit data-unit-id="#{@unit.id}"
             == @unit.description
           
             hr
@@ -85,8 +89,9 @@
               .is-size-4.mb-2 = t 'price',  scope: i18n_scope
               h1.title.is-size-2.is-purple.is-bold.has-no-margin = humanized_money_with_symbol @unit.price
               span = t 'per_night', scope: i18n_scope
-            .card.visible-overflow.p-5
+            .card.visible-overflow.p-5.hide-touch
               .is-size-4.mb-2 = t 'find_dates', scope: i18n_scope
-              = render "units/booking_form", locals: { unit: @unit }
+              .hide-touch
+                = render "units/booking_form", locals: { unit: @unit }
               span#current_unit data-unit-id="#{@unit.id}"
         hr

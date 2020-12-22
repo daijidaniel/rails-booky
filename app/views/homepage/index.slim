@@ -20,16 +20,16 @@
       .tents__content-features.has-mt-72
         .columns
           .column.has-text-centered
-            = image_tag 'features/tent', loading: "lazy"
+            = image_tag 'features/tent', loading: "lazy", alt:  "tent"
             p.subtitle.mt-2.is-bold = t 'tents.about_1', scope: i18n_scope
           .column.has-text-centered
-            = image_tag 'features/trees', loading: "lazy"
+            = image_tag 'features/trees', loading: "lazy", alt:  "trees"
             p.subtitle.mt-2.is-bold = t 'tents.about_2', scope: i18n_scope
           .column.has-text-centered
-            = image_tag 'features/bath', loading: "lazy"
+            = image_tag 'features/bath', loading: "lazy", alt:  "bath"
             p.subtitle.mt-2.is-bold = t 'tents.about_3', scope: i18n_scope
           .column.has-text-centered
-            = image_tag 'features/flower', loading: "lazy"
+            = image_tag 'features/flower', loading: "lazy", alt:  "flower"
             p.subtitle.mt-2.is-bold = t 'tents.about_4', scope: i18n_scope
 
   section.offer
@@ -84,5 +84,5 @@
 
         .column.is-fullheight
           .card.rounded.is-fullheight.gmap_canvas_card
-            iframe id="gmap_canvas" src="https://maps.google.com/maps?q=kimuraglamping&t=&z=11&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+            iframe id="gmap_canvas" src="https://maps.google.com/maps?q=kimuraglamping&t=&z=11&ie=UTF8&iwloc=&output=embed" frameborder="0" title="googlemap" scrolling="no" marginheight="0" marginwidth="0"
 
