@@ -30,11 +30,13 @@
         .columns
           .column.is-three-quarters
             .top_title
-              h1.title.is-size-1.is-size-2-mobile = @unit.name
+              h1.title.is-size-1.is-size-3-mobile = @unit.name
               .top_title-price.only-touch
                 h1.title.is-size-2.is-size-3-mobile.is-purple.is-bold.has-no-margin = humanized_money_with_symbol @unit.price
                 span = t('per_night', scope: i18n_scope)
-            .card.p-5.only-touch
+            span.hide-touch == @unit.description
+          .column.only-touch
+            .card.p-5
               .is-size-4.mb-2 = t 'find_dates', scope: i18n_scope
               = render "units/booking_form", locals: { unit: @unit }
               span#current_unit data-unit-id="#{@unit.id}"
