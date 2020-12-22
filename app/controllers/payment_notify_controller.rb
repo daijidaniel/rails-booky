@@ -6,8 +6,7 @@ class PaymentNotifyController < ApplicationController
   end
 
   def new_order_processing(payment, status)
-    case status
-    when "COMPLETED"
+    if status == "COMPLETED"
       payment&.complete! unless payment.paid?
       
       if !payment.confirmation_sent?
@@ -17,10 +16,10 @@ class PaymentNotifyController < ApplicationController
         
         payment.confirmation_sent!
       end
-    when "CANCELED"
+    elsif status == "CANCELED"
       payment&.failure!
 
-    when "PENDING"
+    elsif status == "PENDING"
       payment&.pending! unless payment&.cancelled?
     end
   end
