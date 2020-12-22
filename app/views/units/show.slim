@@ -40,7 +40,8 @@
               .is-size-4.mb-2 = t 'find_dates', scope: i18n_scope
               = render "units/booking_form", locals: { unit: @unit }
               span#current_unit data-unit-id="#{@unit.id}"
-            == @unit.description
+            .container
+              == @unit.description
           
             hr
             .columns
