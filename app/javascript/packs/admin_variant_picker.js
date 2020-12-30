@@ -1,1 +1,0 @@
-admin_variant_picker.js

@@ -1,7 +1,7 @@
 import bulmaCalendar from "bulma-calendar/dist/js/bulma-calendar.min.js";
 
-// var host = "https://kimuraglamping.pl"
-var host = "http://localhost:3000"
+var host = "https://kimuraglamping.pl"
+// var host = "http://localhost:3000"
 var calendar;
 var picker_spot = document.querySelector("#date_picker_here");
 document.addEventListener("turbolinks:load", function(event) {
