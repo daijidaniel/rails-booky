@@ -49,8 +49,8 @@ module Admin
     def new_booking_params
       {
         unit_ids: [params[:unit]],
-        start_date: DateTime.parse("#{params[:booking][:date].split(" - ")[0]} 15:00"),
-        end_date: DateTime.parse("#{params[:booking][:date].split(" - ")[1]} 13:00"),
+        start_date: DateTime.parse("#{params[:booking][:date].split(" - ")[0]} 13:00"),
+        end_date: DateTime.parse("#{params[:booking][:date].split(" - ")[1]} 11:00"),
         user_id: params[:user],
         adult_capacity: params[:adult_capacity],
         child_capacity: params[:child_capacity],

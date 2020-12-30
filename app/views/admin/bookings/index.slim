@@ -1,12 +1,12 @@
-.mt-5 style="min-height: 100vh;"
-  .container style="display: flex; justify-content: center; flex-direction: column; align-items: center"
+.mt-5
+  .container
     .columns
       .column
         .columns
           .column
             h1.title New Booking
           .column
-            = link_to "New User", "#", class: "button is-primary", type: "button"
+            = link_to "New User", new_admin_user_path, class: "button is-primary", type: "button"
         .card.p-5.visible-overflow
           = form_with url: admin_bookings_path do |f|
             .columns

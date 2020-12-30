@@ -1,0 +1,48 @@
+.mt-5 style="min-height: 100vh;"
+  .container
+    .columns
+      .column
+        .card.p-5
+          .card-header
+            h1.title = @user.name
+          = form_with model: @user, url: admin_user_path do |f|
+            .field
+              = f.label :email
+              .control
+                = f.email_field :email, class: "input"
+            .field
+              = f.label :first_name
+              .control
+                = f.text_field :fname, class: "input"
+            .field
+              = f.label :last_name
+              .control
+                = f.text_field :lname, class: "input"
+            .field
+              = f.label :password
+              .control
+                = f.password_field :password, class: "input"
+            = f.submit "Update!",  class: "button is-primary"
+      .column
+        .card.p-5
+          .card-header
+            h1.title Bookings
+            table.table.is-hoverable
+              thead
+                tr
+                  th 
+                    abbr title="#" #
+                  th
+                    abbr title="Extra" Booking
+                  th
+                    abbr title="Price" Days
+                  th
+                    abbr title="Total" Total
+              tbody
+                - @bookings.each_with_index do |booking, idx|
+                  tr onclick="window.open('#{admin_booking_url(booking)}')"
+                    th = idx
+                    td = booking.units.first.name
+                    td = "#{booking.start_date.to_date.strftime("%d/%m/%Y")} - #{booking.end_date.to_date.strftime("%d/%m/%Y")}"
+                    td = humanized_money_with_symbol booking.price
+

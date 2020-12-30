@@ -1,0 +1,23 @@
+.column
+  h1.title All Bookings
+  .card.m-5
+    table.table.is-hoverable.is-fullwidth
+      thead
+        tr
+          th 
+            abbr title="#" #
+          th
+            abbr title="Tent" email
+          th
+            abbr title="People" name
+          th
+            abbr title="Start date" bookings
+
+      tbody
+        - @users.each_with_index do |user, index|
+          tr onclick="window.open('#{admin_user_url(user)}')"
+            th = index
+            td = user.email
+            td = user.name
+            td = user.bookings.count
+           

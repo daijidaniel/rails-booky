@@ -1,0 +1,59 @@
+.mt-5 style="min-height: 100vh;"
+  .contanier
+    .card.p-5 style="max-width: 800px"
+      = form_with model: @user, local: true, url: admin_users_path do |f|
+        .columns
+          .column
+            h1.title New User
+            hr
+            .field
+              = f.label :email
+              .control
+                = f.email_field :email, class: "input", required: true
+            .field
+              = f.label :first_name
+              .control
+                = f.text_field :fname, class: "input", required: true
+            .field
+              = f.label :last_name
+              .control
+                = f.text_field :lname, class: "input", required: true
+            .field
+              = f.label :password
+              .control
+                = f.password_field :password, class: "input"
+          .column
+            h1.title Address
+            hr
+            = f.fields_for 'address_attributes', @user.address do |aa|
+              .field
+                = f.label :line1
+                .control
+                  = f.text_field :line1, class: "input", required: true
+              .field
+                = f.label :line2
+                .control
+                  = f.text_field :line2, class: "input", required: true
+              .field
+                = f.label :country, class: "label"
+                .control
+                  = f.text_field :country, class: "input", value: "Poland", disabled: true
+              .field
+                = f.label :city, class: "label"
+                .control
+                  .select
+                    = f.select :city, options_for_select(%i[wielkopolskie kujawsko-pomorskie małopolskie łódzkie dolnośląskie lubelskie lubuskie mazowieckie opolskie podlaskie pomorskie śląskie podkarpackie świętokrzyskie warmińsko-mazurskie zachodniopomorskie].map(&:capitalize)), {}, class: "input select", required: true
+              .field
+                = f.label :postcode, class: "label"
+                .control
+                  = f.text_field :postcode, class: "input", required: true
+              .field
+                = f.label :phone, class: "label"
+                .control
+                  = f.text_field :phone, class: "input", required: true
+              .field
+                = f.label :nip, class: "label"
+                .control
+                  = f.text_field :vat_id, class: "input"
+
+        = f.submit "Create!",  class: "button is-primary"

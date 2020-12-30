@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_one :address
   has_many :payments
   
+  accepts_nested_attributes_for :address, allow_destroy: true
+
   enum auth_level: %i[ user admin ]
 
   def name
