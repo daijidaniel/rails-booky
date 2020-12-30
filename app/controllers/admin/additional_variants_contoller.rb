@@ -1,1 +1,0 @@
-additional_variants_contoller.rb
