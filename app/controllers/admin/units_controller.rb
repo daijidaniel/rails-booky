@@ -1,6 +1,5 @@
 module Admin
   class UnitsController < Admin::ApplicationController
-    before_action :ensure_admin!
     before_action :set_unit, only: %i[ show update ]
 
     def index; end

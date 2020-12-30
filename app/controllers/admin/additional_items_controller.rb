@@ -1,6 +1,5 @@
 module Admin
   class AdditionalItemsController < Admin::ApplicationController
-    before_action :ensure_admin!
     before_action :set_item, only: %i[show update]
     
     def index; end

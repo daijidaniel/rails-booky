@@ -290,7 +290,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   friendly_id (~> 5.4.0)
-  google-api-client (~> 0.34)
+  google-api-client
   googleauth
   humanize
   image_processing

@@ -87,8 +87,8 @@ class BookingsController < ApplicationController
 
     def booking_params_parsed
       {
-        start_date: DateTime.parse(booking_params[:date].split(" - ")[0]),
-        end_date: DateTime.parse(booking_params[:date].split(" - ")[1]),
+        start_date: DateTime.parse("#{booking_params[:date].split(" - ")[0]} 00:00 UTC+01:00"),
+        end_date: DateTime.parse("#{booking_params[:date].split(" - ")[1]} 13:00 UTC+01:00"),
         adult_capacity: JSON.parse(booking_params[:guests])['adult_count'],
         child_capacity: JSON.parse(booking_params[:guests])['child_count'],
         user_id: user_signed_in? ? current_user.id : nil

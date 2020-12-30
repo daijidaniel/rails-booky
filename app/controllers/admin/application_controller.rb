@@ -1,6 +1,8 @@
 module Admin
   class ApplicationController < ApplicationController
     before_action :authenticate_user!
+    before_action :ensure_admin!
+
     layout 'admin'
     
     def ensure_admin!

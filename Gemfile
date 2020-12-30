@@ -33,7 +33,7 @@ gem 'money-rails', '~>1.12'
 gem 'image_processing'
 gem 'humanize'
 gem 'dotenv-rails'
-gem 'google-api-client', '~> 0.34'
+gem 'google-api-client', require: ['google/apis/calendar_v3']
 gem 'googleauth'
 
 # Reduces boot times through caching; required in config/boot.rb

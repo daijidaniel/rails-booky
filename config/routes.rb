@@ -25,8 +25,10 @@ Rails.application.routes.draw do
     resources :contact_form, only: %i[ create ]
 
     namespace :admin do
-      root "units#index"
+      root "bookings#index"
 
+      resources :users, only: %i[index create update show]
+      resources :bookings, only: %i[index create update show]
       resources :units, only: %i[ index create update show ]
       resources :additional_items, only: %i[ index create show update ] do
         resources :variants, only: %i[ create destroy ]

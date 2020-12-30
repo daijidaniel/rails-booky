@@ -1,0 +1,91 @@
+.mt-5 style="min-height: 100vh;"
+  .container style="display: flex; justify-content: center; flex-direction: column; align-items: center"
+    .columns
+      .column
+        .columns
+          .column
+            h1.title New Booking
+          .column
+            = link_to "New User", "#", class: "button is-primary", type: "button"
+        .card.p-5.visible-overflow
+          = form_with url: admin_bookings_path do |f|
+            .columns
+              .column
+                .field
+                  = f.label :tent
+                  .control
+                    .select
+                      = f.select :unit, Unit.all.map { |unit| [unit.name, unit.id] }, required: true
+              .column
+                .field
+                  = f.label :user
+                  .control
+                    .select
+                      = f.select :user, User.all.map { |user| ["#{user.name}: #{user.email}", user.id] }, required: true
+            .field
+              = f.label :dates
+              .control#date_picker_here
+                input.is-black id="calendar_mount" type="date" name="booking[date]"
+            .columns
+              .column
+                .field
+                  = f.label :adult_quantity
+                  .control
+                    = f.number_field :adult_capacity, class: "input", required: true
+              .column
+                .field
+                  = f.label :child_quantity
+                  .control
+                    = f.number_field :child_capacity, class: "input", required: true
+            .field
+              = f.label :variants
+              .control
+            fieldset
+              - Variant.all.each do |v|
+                = fields_for 'additional_variants[]', AdditionalVariant.new do |vf|
+                  = vf.hidden_field :variant_id, value: v.id
+                  .card.p-2.mb-2
+                    .columns
+                      .column
+                        .field
+                          = vf.label :variant
+                          .control
+                            = v.name
+                      .column
+                        .field
+                          = vf.label :quantity
+                          .control
+                            = vf.number_field :quantity, class: "input"
+            = f.submit "Create Booking", class: "button is-primary"
+      .column
+        h1.title All Bookings
+        .card.m-5
+          table.table.is-hoverable.is-fullwidth
+            thead
+              tr
+                th 
+                  abbr title="#" #
+                th
+                  abbr title="Tent" Tent
+                th
+                  abbr title="People" People
+                th
+                  abbr title="Start date" Start
+                th
+                  abbr title="end date" End
+                th
+                  abbr title="status" Payment Status
+                th
+                  abbr title="total" Total
+            tbody
+              - @bookings.each_with_index do |booking, index|
+                tr onclick="window.open('#{admin_booking_url(booking)}')"
+                  th = index
+                  td = booking.units.first.name
+                  td = booking.adult_capacity + booking.child_capacity
+                  td = booking.start_date.to_date.strftime
+                  td = booking.end_date.to_date.strftime
+                  td = booking.payment_status
+                  td = humanized_money_with_symbol booking.price
+
+= javascript_pack_tag 'admin_datepicker', 'data-turbolinks-track': 'reload'

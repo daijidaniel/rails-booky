@@ -1,0 +1,64 @@
+- extras_price = Money.new(@booking.additional_variants.map { |av| av&.quantity * av&.variant.price_cents }.sum)
+
+. style="min-height: 100vh;"
+  .container style="display: flex; justify-content: center; flex-direction: column; align-items: center;"
+    h1.title.mt-5
+      = @booking.start_date.to_date.strftime("%d/%m/%Y")
+      |     -       
+      = @booking.end_date.to_date.strftime("%d/%m/%Y")
+    h2.subtitle
+      = (@booking.end_date.to_date - @booking.start_date.to_date).to_i
+      |  day(s)
+    .columns
+      .column
+        .card.p-5
+          .card-title
+            h1.title = @booking.units.first.name
+            h2.subtitle.is-purple = humanized_money_with_symbol @booking.price
+            - if @booking.calendar_link
+              h2.subtitle.is-purple 
+                = link_to "google calendar", @booking.calendar_link
+
+            = form_with model: @booking, url: admin_booking_path do |f|
+              fieldset disabled=true
+                .field
+                  = f.label :name
+                  .control
+                    input.input = @booking.user.name
+                .field
+                  = f.label :user_email
+                  .control
+                    input.input value== @booking.user.email
+              .field.mt-2
+                = f.label :payment_status
+                .control
+                  .select
+                    = f.select :payment_status, Payment.statuses.keys.to_a
+              = f.submit "Update", class: "button is-primary"
+      .column
+        .card.p-5
+          .card-title
+            h1.title Extras
+            - if extras_price != 0
+              h2.subtitle.is-purple = humanized_money_with_symbol extras_price
+            table.table.is-hoverable
+              thead
+                tr
+                  th 
+                    abbr title="#" #
+                  th
+                    abbr title="Extra" Extra
+                  th
+                    abbr title="Price" Price
+                  th
+                    abbr title="Qty" Qty
+                  th
+                    abbr title="Total" Total
+              tbody
+                - @booking.additional_variants.each_with_index do |av, idx|
+                  tr
+                    th = idx
+                    td = av.variant.name
+                    td = humanized_money_with_symbol av.variant.price
+                    td = av.quantity
+                    td = humanized_money_with_symbol av.variant.price * av.quantity
