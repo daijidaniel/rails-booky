@@ -34,8 +34,13 @@ section.unit__page
               h1.title.is-size-2.is-size-3-mobile.is-purple.is-bold.has-no-margin = humanized_money_with_symbol @unit.price
               span = t('per_night', scope: i18n_scope)
           == @unit.description
-        
+
           hr
+          .card.visible-overflow.p-5.is-hidden-desktop
+            .is-size-4.mb-2 = t 'find_dates', scope: i18n_scope
+            div
+              = render "units/booking_form", locals: { unit: @unit }
+            span#current_unit data-unit-id="#{@unit.id}"
           .columns
             .column
               .unit__page-information-points
@@ -84,7 +89,7 @@ section.unit__page
             .is-size-4.mb-2 = t 'price',  scope: i18n_scope
             h1.title.is-size-2.is-purple.is-bold.has-no-margin = humanized_money_with_symbol @unit.price
             span = t 'per_night', scope: i18n_scope
-          .card.visible-overflow.p-5
+          .card.visible-overflow.p-5.hide-touch
             .is-size-4.mb-2 = t 'find_dates', scope: i18n_scope
             .hide-touch
               = render "units/booking_form", locals: { unit: @unit }
