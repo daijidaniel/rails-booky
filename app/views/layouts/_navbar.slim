@@ -2,18 +2,14 @@ nav.navbar role="navigation" aria-label="main navigation"
   .container
     .navbar-brand
       .navbar-right style="display: flex !important; justify-content: space-between"
+        = link_to root_path(locale: locale) do
+          = image_tag 'logo-white.svg', class: 'hide-touch', style: 'width: 75px; position: relative; top: 10px;'
         /a.navbar-item.only-touch
           .input__search
             .hero__content-searchnav.has-text-centered.m-2#searchnav
               input.input.hero__content-search-input placeholder="Pick a date" type="date" name="booking[date]" style="height: initial"
               span#current_unit data-unit-id="?id=all"
-      .hide-touch style="display: flex; align-items: center"
-        span
-          a.navbar-item href="#{root_path(locale: :en)}" 🇬🇧
-        span
-          | /
-        span
-          a.navbar-item href="#{root_path(locale: :pl)}" 🇵🇱
+
 
       .navbar-item
         a.navbar-burger role="button" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"
@@ -25,17 +21,22 @@ nav.navbar role="navigation" aria-label="main navigation"
       .navbar-start style="width: 100%; display: flex; justify-content: center;"
         .navbar-item.only-touch
           . style="display: flex !important; justify-content: center; flex-direction: row; align-items: center"
-            span
-              a.navbar-item style="font-size: 2.5rem" href="#{root_path(locale: :en)}" 🇬🇧 
-            span style="font-size: 3rem; color: white"
-              | /
-            span
-              a.navbar-item style="font-size: 2.5rem" href="#{root_path(locale: :pl)}" 🇵🇱
+              - if locale.to_s == "pl"
+                a.navbar-item style="font-size: 2.5rem" href="#{root_path(locale: :en)}" 🇬🇧 
+              - else
+                a.navbar-item style="font-size: 2.5rem" href="#{root_path(locale: :pl)}" 🇵🇱       
         /.hero__content-searchnav.has-text-centered.hide-touch.m-2#searchnav style="width: 80%"
           input.input.hero__content-search-input placeholder="Pick a date" type="date" name="booking[date]" style="height: initial"
           span#current_unit data-unit-id="?id=all"
       
       .navbar-end
+        .navbar-item
+          .hide-touch style="display: flex; align-items: center"
+            span
+              - if locale.to_s == "pl"
+                a.navbar-item href="#{root_path(locale: :en)}" 🇬🇧
+              - else
+                a.navbar-item href="#{root_path(locale: :pl)}" 🇵🇱
         .navbar-item
           = link_to checkout_index_path do 
             svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg"
