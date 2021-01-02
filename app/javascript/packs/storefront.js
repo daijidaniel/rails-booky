@@ -1,6 +1,7 @@
 window.onscroll = (event) =>  {
   var top =   window.pageYOffset || document.documentElement.scrollTop;
-  let nav = document.querySelector("nav");
+  let nodes = document.querySelectorAll("nav");
+  let nav = nodes[nodes.length - 1];
 
   let navsearch = document.querySelectorAll("#searchnav");
 
