@@ -35,6 +35,7 @@ gem 'humanize'
 gem 'dotenv-rails'
 gem 'google-api-client', require: ['google/apis/calendar_v3']
 gem 'googleauth'
+gem 'rack-reverse-proxy', '~> 0.11.0', :require => "rack/reverse_proxy"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
