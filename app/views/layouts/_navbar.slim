@@ -3,9 +3,11 @@ nav.navbar.is-block
   nav.navbar role="navigation" aria-label="main navigation"
     .container
       .navbar-brand
-        .navbar-right style="display: flex !important; justify-content: space-between"
+        .navbar-right style="display: flex !important; justify-content: center"
           = link_to root_path(locale: locale) do
             = image_tag 'logo-white.svg', class: 'hide-touch', style: 'width: 65px; position: relative; top: 10px;'
+          .has-text-centered.only-touch
+            = image_tag 'logo-white.svg', style: 'width: 65px; position: relative; top: 10px;'
           /a.navbar-item.only-touch
             .input__search
               .hero__content-searchnav.has-text-centered.m-2#searchnav
