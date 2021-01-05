@@ -13,13 +13,6 @@
   </head>
 
   <body>
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, class: "notification #{notification_class name}" do %>
-        <%= content_tag :button, "", class: "delete" %>
-        <%= msg %>
-      <% end %>
-    <% end %>
-
     <%= render "layouts/navbar" %>
     <%= yield %>
     <%= render "layouts/footer" %>
