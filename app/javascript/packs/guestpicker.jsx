@@ -10,9 +10,10 @@ const Container = styled('div')`
   background: #FFFFFF;
 `;
 
-const picker = document.getElementById("booking_amount");
-const guest_count = document.getElementById("guest_count");
-const booking_guests = document.getElementById("booking_guests");
+const picker = document.querySelectorAll("#booking_amount");
+const guest_count = document.querySelectorAll("#guest_count");
+const booking_guests = document.querySelectorAll("#booking_guests");
+var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 
 export default class GuestPicker extends Component {
   constructor(){
@@ -38,16 +39,35 @@ export default class GuestPicker extends Component {
     this.setState(prevState => ({
       visible: !prevState.visible
     }));
-    guest_count.textContent = this.state.adult_count + this.state.child_count + " guests";
-    booking_guests.value = "{\"child_count\": \"" + this.state.child_count + "\"" + ", " + "\"adult_count\": \"" + this.state.adult_count + "\"}";
+    if(width > 950) {      
+      guest_count[1].textContent = this.state.adult_count + this.state.child_count + " guests";
+      booking_guests[1].value = "{\"child_count\": \"" + this.state.child_count + "\"" + ", " + "\"adult_count\": \"" + this.state.adult_count + "\"}";
+    } else {
+      guest_count[0].textContent = this.state.adult_count + this.state.child_count + " guests";
+      booking_guests[0].value = "{\"child_count\": \"" + this.state.child_count + "\"" + ", " + "\"adult_count\": \"" + this.state.adult_count + "\"}";
+    }
   }
 
   componentDidMount() {
-    picker.addEventListener("click", () => {
-      this.setState(prevState => ({
-        visible: !prevState.visible
-      }));
-    })
+    console.log("mounted");
+
+    if(width > 950){      
+      picker[1].addEventListener("click", (e) => {
+        e.preventDefault();
+        this.setState(prevState => ({
+          visible: !prevState.visible
+        }));
+        console.log(this.state.visible);
+      })
+    } else {
+      picker[0].addEventListener("click", (e) => {
+        e.preventDefault();
+        this.setState(prevState => ({
+          visible: !prevState.visible
+        }));
+        console.log(this.state.visible);
+      })
+    }
   }
   
   addAdult(event) {
@@ -156,10 +176,18 @@ export default class GuestPicker extends Component {
   }
 }
 
+
 document.addEventListener('turbolinks:load', () => {
-  ReactDOM.render(
-    <GuestPicker />,
-    document.getElementById("guestpicker").appendChild(document.createElement('div'))
-  )
-})
+  if(width > 950){
+    ReactDOM.render(
+      <GuestPicker />,
+       document.querySelectorAll("#guestpicker")[1].appendChild(document.createElement('div'))
+    )
+  } else {
+    ReactDOM.render(
+      <GuestPicker />,
+      document.querySelectorAll("#guestpicker")[0].appendChild(document.createElement('div'))
+    )
+  }
+});
 
