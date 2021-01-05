@@ -5,6 +5,11 @@ en:
     contact: Contact
     booking: Bookings
     login: Login
+    facilities: Facilities
+    events: Events
+    faq: FAQ
+    contact: Contact
+    blog: Blog
   footer:
     name: Full name
     email: Email

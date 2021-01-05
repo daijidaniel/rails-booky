@@ -40,4 +40,6 @@
   border: 0;
   border-bottom: 1px solid map-get($booking, 'gray-20');
   border-radius: 0px;
+  background-color: transparent;
+  box-shadow: none;
 }

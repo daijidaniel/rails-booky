@@ -15,22 +15,22 @@
 
   .field
     .control
-      = f.text_area :message, placeholder: t('message', scope: i18n_scope), class: "input sp_input", rows: "4", columns: "50"
+      = f.text_area :message, placeholder: t('message', scope: i18n_scope), class: "input sp_input", style: "height: initial;", rows: "6", columns: "50"
 
   .field
     .control
       label.checkbox
         = f.label :privacy_policy do
-          = f.check_box :privacy_policy
+          = f.check_box :privacy_policy, style: "margin-right: 8px;"
           = t('privacy_policy', scope: i18n_scope).html_safe
 
   .field
     .control
       label.checkbox
         = f.label :tos do
-          = f.check_box :tos
+          = f.check_box :tos, style: "margin-right: 8px;"
           = t('tos_accept', scope: i18n_scope).html_safe
 
-  .field
+  .field.has-text-right
     .control
       = f.submit t('submit', scope: i18n_scope), class: "button is-link"

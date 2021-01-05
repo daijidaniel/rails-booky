@@ -2,6 +2,14 @@ pl:
   topbar:
     info: Już teraz możesz zarezerwować swoje ulubione namioty na sezon 2021!
   navbar:
+    contact: Kontakt
+    booking: Rezerwacje
+    login: Login
+    facilities: Udogodnienia
+    events: Eventy
+    faq: FAQ
+    contact: Kontakt
+    blog: Blog
   footer:
     name: Imię i nazwisko
     email: Email

@@ -28,6 +28,13 @@ nav, .navbar {
   transition: all 500ms;
 }
 
+.navbar-brand {
+  &__logo {
+    position: relative;
+    top: 20px;
+  }
+}
+
 @include touch {
   .navbar-brand {
     flex-direction: row-reverse;
