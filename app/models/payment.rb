@@ -16,7 +16,7 @@ class Payment < ApplicationRecord
       booking.update payment_status: :paid 
       GoogleCalendarServices::Calendar.new({
         booking: booking
-      }).create_event
+      }).create_event if booking.event_id.nil?
     end
   end
 
@@ -32,7 +32,7 @@ class Payment < ApplicationRecord
       booking.update payment_status: :paid 
       GoogleCalendarServices::Calendar.new({
         booking: booking
-      }).create_event
+      }).create_event if booking.event_id.nil?
     end
   end
 
@@ -58,7 +58,7 @@ class Payment < ApplicationRecord
       booking.update payment_status: :cancelled 
       GoogleCalendarServices::Calendar.new({
         booking: booking
-      }).delete_event
+      }).delete_event unless event_id.nil?
     end
   end
 
@@ -69,7 +69,7 @@ class Payment < ApplicationRecord
       booking.update payment_status: :cancelled 
       GoogleCalendarServices::Calendar.new({
         booking: booking
-      }).delete_event
+      }).delete_event unless event_id.nil?
     end
   end
 end
