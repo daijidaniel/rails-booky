@@ -10,7 +10,7 @@
           span#current_unit data-unit-id="?id=all"
 
         .hero__content-title.p-5
-          h1.title = t 'hero.discover', scope: i18n_scope
+          h1.title.is-size-3-touch.has-text-left-touch = t 'hero.discover', scope: i18n_scope
           = link_to t('hero.book_now', scope: i18n_scope), units_path, onClick: "", class: "button has-text-black"
           a href="tel:+48536504800"
             button.button.has-background-black.has-text-white.ml-4 = t 'hero.call_us', scope: i18n_scope 
@@ -54,14 +54,14 @@
                     .title = unit.name
                     p.subtitle = unit.description.body&.to_plain_text&.truncate(50)
 
-  section.attractions
+  section.attractions#facilities
     .attractions__content.container
       .attractions__content-title.mb-5
         h1.title.is-white = t 'attractions.attractions', scope: i18n_scope
       .attractions__content-cards
         = render 'homepage/facilities'
 
-  section.specials.p-5
+  section.specials.p-5#events
     .specials__section.container
       h1.title  = t 'specials.title', scope: i18n_scope
       .specials__section-events
