@@ -14,6 +14,11 @@ class Payment < ApplicationRecord
 
     bookings.each do |booking| 
       booking.update payment_status: :paid
+      if RAILS_ENV != "development"	
+        GoogleCalendarServices::Calendar.new({	
+          booking: booking	
+        }).create_event if booking.event_id.nil?	
+      end
     end
   end
 
@@ -27,6 +32,11 @@ class Payment < ApplicationRecord
     
     bookings.each do |booking| 
       booking.update payment_status: :paid
+      if RAILS_ENV != "development"	
+        GoogleCalendarServices::Calendar.new({	
+          booking: booking	
+        }).create_event if booking.event_id.nil?	
+      end
     end
   end
 
