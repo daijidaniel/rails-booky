@@ -13,10 +13,12 @@ class Payment < ApplicationRecord
     self.status = :paid
 
     bookings.each do |booking| 
-      booking.update payment_status: :paid 
-      GoogleCalendarServices::Calendar.new({
-        booking: booking
-      }).create_event if booking.event_id.nil?
+      booking.update payment_status: :paid
+      if RAILS_ENV != "development"
+        GoogleCalendarServices::Calendar.new({
+          booking: booking
+        }).create_event if booking.event_id.nil?
+      end
     end
   end
 
@@ -29,10 +31,12 @@ class Payment < ApplicationRecord
     update status: :paid
     
     bookings.each do |booking| 
-      booking.update payment_status: :paid 
-      GoogleCalendarServices::Calendar.new({
-        booking: booking
-      }).create_event if booking.event_id.nil?
+      booking.update payment_status: :paid
+      if RAILS_ENV != "development"
+        GoogleCalendarServices::Calendar.new({
+          booking: booking
+        }).create_event if booking.event_id.nil?
+      end
     end
   end
 
@@ -55,10 +59,12 @@ class Payment < ApplicationRecord
     self.status = :cancelled
 
     bookings.each do |booking| 
-      booking.update payment_status: :cancelled 
-      GoogleCalendarServices::Calendar.new({
-        booking: booking
-      }).delete_event unless event_id.nil?
+      booking.update payment_status: :cancelled
+      if RAILS_ENV != "development"
+        GoogleCalendarServices::Calendar.new({
+          booking: booking
+        }).delete_event unless event_id.nil?
+      end
     end
   end
 
@@ -66,10 +72,12 @@ class Payment < ApplicationRecord
     update status: :cancelled
 
     bookings.each do |booking| 
-      booking.update payment_status: :cancelled 
-      GoogleCalendarServices::Calendar.new({
-        booking: booking
-      }).delete_event unless event_id.nil?
+      booking.update payment_status: :cancelled
+      if RAILS_ENV != "development"
+        GoogleCalendarServices::Calendar.new({
+          booking: booking
+        }).delete_event unless event_id.nil?
+      end
     end
   end
 end
