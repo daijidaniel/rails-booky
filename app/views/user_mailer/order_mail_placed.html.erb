@@ -14,10 +14,11 @@
     <% @payment.bookings.each do |booking| %>
       <div class="item">
 
-        <%= image_tag url_for(booking.units.first.images.first.variant(resize_to_limit: [200, 200])) %>
+      <%= image_tag url_for(booking.units.first.images.first.variant(resize_to_limit: [200, 200])) %>
         <h5><%= booking.units.first.name %></h5>
         <p> <%= (booking.end_date.to_date - booking.start_date.to_date).to_i %>
           <span> <%= t('days', scope: 'mail') %></span>
+          <b><%= booking.user.email %></b>
           <b><%= humanized_money_with_symbol booking.price %></b>
         </p>
       </div>
@@ -31,7 +32,7 @@
         <b>Total: <%= humanized_money_with_symbol total %></b>
       </p>
     </div>
-    
+
   </div>
 </div>
 

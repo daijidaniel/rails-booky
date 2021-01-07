@@ -35,7 +35,13 @@ en:
     cancel: Cancel booking
   address_error: Fill in your address before continuing
   mail:
-    order_placed: Your order has been placed
+    order_placed: The order has been placed
+    confirmation: Order's confirmation
+    details: To check more details, please click here
+    questions: If you have any questions, feel free to contact us
+    thank_you: Thank you for choosing us!
+    looking_forward: We're looking forward to see you in Kimura Glamping!
+    problems: If you have any problem, please contact us!
     order_paid: Payment successful!
     new_booking:  New booking!
     order_update: Order update
