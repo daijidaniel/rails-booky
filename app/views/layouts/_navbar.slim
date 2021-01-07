@@ -37,15 +37,15 @@ nav.navbar.is-block
         
         .navbar-end
           .navbar-item
-            span.has-text-white.has-text-weight-semibold.ml-5 = t('navbar.facilities')
+            = link_to t('navbar.facilities'), root_path(locale: locale, anchor: "facilities"), class: "span has-text-white has-text-weight-semibold ml-5"
           .navbar-item
-            span.has-text-white.has-text-weight-semibold.ml-5 = t('navbar.events')
+            = link_to t('navbar.events'), root_path(locale: locale, anchor: "events"), class: "span has-text-white has-text-weight-semibold ml-5"
           .navbar-item
-            span.has-text-white.has-text-weight-semibold.ml-5 = t('navbar.faq')
+            = link_to t('navbar.faq'), faq_path(locale: locale), class: "span has-text-white has-text-weight-semibold ml-5"
           .navbar-item
-            span.has-text-white.has-text-weight-semibold.ml-5 = t('navbar.contact')
+            = link_to t('navbar.contact'), root_path(locale: locale, anchor: "contact"), class: "span has-text-white has-text-weight-semibold ml-5"
           .navbar-item
-            span.has-text-white.has-text-weight-semibold.ml-5 = t ('navbar.blog')
+            = link_to t('navbar.blog'), root_path(locale: locale), class: "span has-text-white has-text-weight-semibold ml-5"
 
           .navbar-item
             .hide-touch style="display: flex; align-items: center"
