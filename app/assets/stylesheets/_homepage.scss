@@ -63,6 +63,9 @@
   }
 
   &-title {
+    @include touch {
+      text-align: left;
+    }
     h1 {
       font-size: 80px;
       color: $booking-white-text;
@@ -171,7 +174,7 @@ section.attractions {
     background: asset-url('hero_mob.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    height: 90vh;
+    height: 100vh;
 
     .hero__gradient {
       z-index: 1;
@@ -185,7 +188,7 @@ section.attractions {
       }
 
       &-title {
-        margin-top: 20%;
+        margin-top: -40%;
         z-index: 10;
         h1 {
           font-size: 36pt;
