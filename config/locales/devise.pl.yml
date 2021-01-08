@@ -1,9 +1,9 @@
 pl:
-  accept_privacy_policy: I accept <a href='/privacy-policy'>Privacy Policy</a>
+  accept_privacy_policy: Akceptuję <a href='/privacy-policy'>Politykę Prywatności</a>
   devise:
-    login: Already have an account?
-    sign_up: Don't have an account?
-    forgot: Forgot your password?
+    login: Masz już konto?
+    sign_up: Nie masz konta?
+    forgot: Nie pamiętasz hasła?
     confirmations:
       confirmed: "Twój adres email został potwierdzony"
       send_instructions: "W ciągu kilku minut otrzymasz e-mail z instrukcją, jak potwierdzić swój adres e-mail."
@@ -28,7 +28,7 @@ pl:
       email_changed:
         subject: "Email został zmieniony"
       password_change:
-        subject: "Password zostało zmienione"
+        subject: "Hasło zostało zmienione"
     omniauth_callbacks:
       failure: "Nie można było Cię potwierdzić poprzez %{kind}, ponieważ \"%{reason}\"."
       success: "Pomyślnie potwierdzono konto przez %{kind}."
