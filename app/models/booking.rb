@@ -27,7 +27,7 @@ class Booking < ApplicationRecord
     
     total = units.map do |unit|
       unit.price_cents + extra_amount * 100
-    end.sum * (end_date.to_date - start_date.to_date).to_i + additional_variants.map { |av| av.quantity * av.variant.price_cents }.sum
+    end.sum * ((end_date.to_date - start_date.to_date).to_i - 1) + additional_variants.map { |av| av.quantity * av.variant.price_cents }.sum
 
     self.price_cents = total
   end
@@ -37,16 +37,16 @@ class Booking < ApplicationRecord
     
     total = units.map do |unit|
       unit.price_cents + extra_amount * 100
-    end.sum * (end_date.to_date - start_date.to_date).to_i + additional_variants.map { |av| av.quantity * av.variant.price_cents }.sum
+    end.sum * ((end_date.to_date - start_date.to_date).to_i - 1) + additional_variants.map { |av| av.quantity * av.variant.price_cents }.sum
 
     self.update price_cents: total
   end
 
   def extra_amount
-    if(self.adult_capacity + self.child_capacity) == 2
+    if self.adult_capacity == 2 && self.child_capacity == 0
       return 0
     else
-      return ( (self.adult_capacity - 2) < 0 ? 0 : (self.adult_capacity - 2) ) * ADULT_EXTRA_PRICE + child_capacity * CHILD_EXTRA_PRICE 
+      return ( (self.adult_capacity - 2) < 0 ? 0 : (self.adult_capacity - 2) ) * ADULT_EXTRA_PRICE + ( (self.child_capacity) <= 0 ? 0 : (self.child_capacity) ) * CHILD_EXTRA_PRICE 
     end
   end
 end

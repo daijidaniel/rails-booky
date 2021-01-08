@@ -59,16 +59,16 @@ br
           .vertical_hr
 
         .column
-          - days = (booking.end_date.to_date - booking.start_date.to_date).to_i
+          - days = (booking.end_date.to_date - booking.start_date.to_date).to_i - 1
           .checkout__summary-block
             .checkout__summary-left
               .checkout__summary-name
                 = booking.units.first.name
                 br
-                = " (#{distance_of_time_in_words(booking.start_date, booking.end_date)}, #{days - 1} #{t('nights', scope: i18n_scope)})"
+                = " (#{distance_of_time_in_words(booking.start_date, booking.end_date)}, #{days} #{t('nights', scope: i18n_scope)})"
               .checkout__summary-days
             .checkout__summary-right
-              span.is-purple = humanized_money_with_symbol booking.units.first.price * (booking.end_date.to_date - booking.start_date.to_date).to_i
+              span.is-purple = humanized_money_with_symbol booking.units.first.price * days
           - booking.additional_variants.each do |v|
             - next if v.quantity == 0
             .checkout__summary-block.pl-2
@@ -83,7 +83,7 @@ br
                   = (booking.adult_capacity - 2).to_s + " x " + t('extra_adult', scope: i18n_scope)
                 .checkout__summary-right
                   span.is-purple = humanized_money_with_symbol Money.new((booking.adult_capacity - 2) * Booking::ADULT_EXTRA_PRICE * 100) * days
-            - if booking.adult_capacity >= 2 || booking.adult_capacity + booking.child_capacity > 0
+            - if booking.child_capacity > 0
               .checkout__summary-block
                 .checkout__summary-left
                   = (booking.child_capacity).to_s + " x " + t('extra_child', scope: i18n_scope)
