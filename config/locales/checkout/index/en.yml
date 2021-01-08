@@ -1,5 +1,6 @@
 en:
   checkout/index:
+    nights: night(s)
     dream_getaway: You're one step closer to your dream getaway
     customize_booking: Customize booking
     dates_chosen: Dates chosen

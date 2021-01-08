@@ -63,7 +63,9 @@ br
           .checkout__summary-block
             .checkout__summary-left
               .checkout__summary-name
-                = booking.units.first.name + " (#{distance_of_time_in_words(booking.start_date, booking.end_date)})"
+                = booking.units.first.name
+                br
+                = " (#{distance_of_time_in_words(booking.start_date, booking.end_date)}, #{days - 1} #{t('nights', scope: i18n_scope)})"
               .checkout__summary-days
             .checkout__summary-right
               span.is-purple = humanized_money_with_symbol booking.units.first.price * (booking.end_date.to_date - booking.start_date.to_date).to_i

@@ -81,34 +81,18 @@ $success: map-get($booking, 'green-80');
 $warning: map-get($booking, 'tangerine-80');
 $danger: map-get($booking, 'red-80');
 
-@each $color in gray, red, green, blue, brown, purple {
+@each $color in gray, red, green, blue, purple {
   @for $i from 1 through 15 {
     .is-#{"" + $color}-#{$i * 10} {
       color: map-get($booking, $color + '-#{$i * 10}');
-    }
-
-    .is-#{"" + $color}-pop-#{$i * 10} {
-      color: map-get($booking, $color + '-pop-#{$i * 10}') !important;
     }
 
     .has-bg-#{"" + $color}-#{$i * 10} {
       background-color: map-get($booking, $color + '-#{$i * 10}') !important;
     }
 
-    //.has-bg-#{"" + $color}-#{$i * 10}-half {
-    //  background-color: rgba(map-get($management, $color + '-#{$i * 10}'), 0.5) !important;
-    //}
-
-    .has-bg-#{"" + $color}-pop-#{$i * 10} {
-      background-color: map-get($booking, $color + '-pop-#{$i * 10}') !important;
-    }
-
     .has-border-#{"" + $color}-#{$i * 10} {
       border-color: map-get($booking, $color + '-#{$i * 10}') !important;
-    }
-
-    .has-border-#{"" + $color}-pop-#{$i * 10} {
-      border-color: map-get($booking, $color + '-pop-#{$i * 10}') !important;
     }
   }
 }
