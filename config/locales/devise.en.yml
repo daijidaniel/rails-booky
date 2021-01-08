@@ -1,5 +1,3 @@
-# Additional translations at https://github.com/heartcombo/devise/wiki/I18n
-
 en:
   accept_privacy_policy: I accept <a href='/privacy-policy'>Privacy Policy</a>
   devise:

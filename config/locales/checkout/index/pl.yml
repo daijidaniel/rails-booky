@@ -1,5 +1,6 @@
 pl:
   checkout/index:
+    nights:
     dream_getaway: Jesteś o krok dalej do wymarzonego wyjazdu
     customize_booking: Dostosuj udogodnienia
     dates_chosen: Wybrana data

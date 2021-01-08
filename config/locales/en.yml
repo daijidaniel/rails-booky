@@ -16,7 +16,7 @@ en:
     phone: Phone number
     message: Message
     submit: Submit
-    privacy_policy: "  I agree to the processing of personal data provided according to <a href='privacy-policy'> Privacy Policy</a>"
+    privacy_policy: "  I agree to the processing of personal data provided according to <a href='/privacy-policy'> Privacy Policy</a>"
     tos_accept: "  I’ve read and fully accept the <a href='/terms-of-service'> Terms of service </a>"
     products: Products
     intouch: Let’s get in touch

@@ -16,8 +16,8 @@ pl:
     phone: Nr telefonu
     message: Wiadomość
     submit: Wyślij
-    privacy_policy: "Wyrażam zgodę na przetwarzania moich danych zgodnie z<a href='#'> Polityką prywatności</a>"
-    tos_accept: "Akceptuję w pełni<a href='#'> Regulamin </a>"
+    privacy_policy: "Wyrażam zgodę na przetwarzania moich danych zgodnie z<a href='/privacy-policy'> Polityką prywatności</a>"
+    tos_accept: "Akceptuję w pełni<a href='/terms-of-service'> Regulamin </a>"
     products: Produkty
     intouch: Pozostańmy w kontakcie
     b2b: Eventy B2B
