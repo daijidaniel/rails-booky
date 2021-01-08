@@ -3,50 +3,96 @@
 - total = current_bookings.map(&:price).sum
 - vat = total / 8
 - before_vat = total - vat
+- order_completed = locals[:order_completed]
 
 br
 .card.p-5.final__total
   h1.title.is-purple
     b = t 'total', scope: i18n_scope 
     span.is-gray = humanized_money_with_symbol current_bookings.map { |b| b.price }.sum 
-  b.is-size-5 = t 'summary', scope: i18n_scope
+  - unless order_completed
+    b.is-size-5 = t 'summary', scope: i18n_scope
 
   .checkout__summary
     - bookings.each_with_index do |booking, idx|
-      - days = (booking.end_date.to_date - booking.start_date.to_date).to_i
-      .checkout__summary-block
-        .checkout__summary-left
-          .checkout__summary-name
-            = booking.units.first.name + " (#{distance_of_time_in_words(booking.start_date, booking.end_date)})"
-          .checkout__summary-days
-            
-        .checkout__summary-right
-          span.is-purple = humanized_money_with_symbol booking.units.first.price * (booking.end_date.to_date - booking.start_date.to_date).to_i
-      - booking.additional_variants.each do |v|
-        - next if v.quantity == 0
-        .checkout__summary-block.pl-2
-          .checkout__summary-left
-            = v.quantity.to_s + " x " + v.variant.name
-          .checkout__summary-right
-            span.is-purple = humanized_money_with_symbol v.variant.price * v.quantity
-      - if booking.adult_capacity + booking.child_capacity > 0
-        - if booking.adult_capacity - 2  > 0 
+      .columns
+        - if order_completed
+          .column
+            .box
+              .booking__info
+                .booking__info-image
+                  - unit = booking.units.first
+                  - if unit.images.attached?
+                    = image_tag url_for(unit.images.first), loading: "lazy"
+                .booking__info-content style="flex-grow: 3;"
+                  h1.title = unit.name
+                  h2.subtitle.is-purple 
+                    = t("subtotal", scope: i18n_scope).html_safe
+                    span.is-gray = humanized_money_with_symbol booking.price
+                  .columns
+                    .column
+                      b.is-purple = t "dates_chosen", scope: i18n_scope
+                      .card.p-3
+                        .dates__chosen
+                          .dates__chosen-checkin
+                            b = t "check_in", scope: i18n_scope
+                            p = booking.start_date.strftime("%m/%d/%Y")
+                          .vertical_hr
+                          .dates__chosen-checkout
+                            b = t "check_out", scope: i18n_scope
+                            p = booking.end_date.strftime("%m/%d/%Y")
+
+                  b.is-purple = t "guests", scope: i18n_scope
+                  .card.p-3
+                    .guests__added
+                      .guests__added-number
+                        div
+                          b = t 'adults', scope: i18n_scope
+                          p style="font-size: 10pt" = t 'adult_info', scope: i18n_scope
+                        p = booking.adult_capacity
+                      - if booking.child_capacity > 0
+                        hr.less-padding
+                        .guests__added-number
+                          div
+                            b = t 'children', scope: i18n_scope
+                            p style="font-size: 10pt" = t 'children_info', scope: i18n_scope
+                          p = booking.child_capacity
+          .vertical_hr
+
+        .column
+          - days = (booking.end_date.to_date - booking.start_date.to_date).to_i
           .checkout__summary-block
             .checkout__summary-left
-              = (booking.adult_capacity - 2).to_s + " x " + t('extra_adult', scope: i18n_scope)
+              .checkout__summary-name
+                = booking.units.first.name + " (#{distance_of_time_in_words(booking.start_date, booking.end_date)})"
+              .checkout__summary-days
             .checkout__summary-right
-              span.is-purple = humanized_money_with_symbol Money.new((booking.adult_capacity - 2) * Booking::ADULT_EXTRA_PRICE * 100) * days
-        - if booking.adult_capacity >= 2 || booking.adult_capacity + booking.child_capacity > 0
+              span.is-purple = humanized_money_with_symbol booking.units.first.price * (booking.end_date.to_date - booking.start_date.to_date).to_i
+          - booking.additional_variants.each do |v|
+            - next if v.quantity == 0
+            .checkout__summary-block.pl-2
+              .checkout__summary-left
+                = v.quantity.to_s + " x " + v.variant.name
+              .checkout__summary-right
+                span.is-purple = humanized_money_with_symbol v.variant.price * v.quantity
+          - if booking.adult_capacity + booking.child_capacity > 0
+            - if booking.adult_capacity - 2  > 0 
+              .checkout__summary-block
+                .checkout__summary-left
+                  = (booking.adult_capacity - 2).to_s + " x " + t('extra_adult', scope: i18n_scope)
+                .checkout__summary-right
+                  span.is-purple = humanized_money_with_symbol Money.new((booking.adult_capacity - 2) * Booking::ADULT_EXTRA_PRICE * 100) * days
+            - if booking.adult_capacity >= 2 || booking.adult_capacity + booking.child_capacity > 0
+              .checkout__summary-block
+                .checkout__summary-left
+                  = (booking.child_capacity).to_s + " x " + t('extra_child', scope: i18n_scope)
+                .checkout__summary-right
+                  span.is-purple = humanized_money_with_symbol Money.new((booking.child_capacity) * Booking::CHILD_EXTRA_PRICE * 100) * days
           .checkout__summary-block
             .checkout__summary-left
-              = (booking.child_capacity).to_s + " x " + t('extra_child', scope: i18n_scope)
-            .checkout__summary-right
-              span.is-purple = humanized_money_with_symbol Money.new((booking.child_capacity) * Booking::CHILD_EXTRA_PRICE * 100) * days
-      .checkout__summary-block
-        .checkout__summary-left
-          b = t 'subtotal', scope: i18n_scope
-        .checkout__summary-left
-          b.is-purple = humanized_money_with_symbol booking.price
+              b = t 'subtotal', scope: i18n_scope
+            .checkout__summary-left
+              b.is-purple = humanized_money_with_symbol booking.price
       hr
   .checkout__summary-block
     .checkout__summary-left

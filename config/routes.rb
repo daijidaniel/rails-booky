@@ -27,8 +27,8 @@ Rails.application.routes.draw do
     namespace :admin do
       root "bookings#index"
 
-      resources :users, only: %i[index create update show new]
-      resources :bookings, only: %i[index create update show]
+      resources :users, only: %i[ index create update show new ]
+      resources :bookings, only: %i[ index create update show ]
       resources :units, only: %i[ index create update show ]
       resources :additional_items, only: %i[ index create show update ] do
         resources :variants, only: %i[ create destroy ]

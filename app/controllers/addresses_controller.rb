@@ -4,31 +4,30 @@ class AddressesController < ApplicationController
   def index; end
   
   def create
-    if current_user.address.nil?
-      address = Address.new(address_params) 
-      if address.save
-        redirect_to payments_path,  flash: { success: "address saved" }
-      else
-        redirect_to addresses_path,  flash: { error: address.errors }
-      end
-    else 
-      if current_user.address.update(address_params)
-        redirect_to payments_path,  flash: { success: "address saved" }
-      else
-        redirect_to addresses_path,  flash: { error: address.errors }
-      end
+    user = current_user
+
+    puts address_params
+    user.build_address unless user.address
+    if user.update(address_params) 
+      redirect_to payments_path,  flash: { success: "address saved" }
+    else
+      redirect_to addresses_path,  flash: { error: user.errors }
     end
   end
 
   def address_params
     {
-      line1: params[:line1],
-      line2: params[:line1],
-      city: params[:city],
-      postcode: params[:postcode],
-      phone: params[:phone],
-      country: "PL",
-      user_id: current_user.id
+      fname: params[:user][:fname],
+      lname: params[:user][:lname],
+      address_attributes: {
+        state: params[:address][:state],
+        line1: params[:address][:line1],
+        line2: params[:address][:line1],
+        city: params[:address][:city],
+        postcode: params[:address][:postcode],
+        phone: params[:address][:phone],
+        country: "PL"
+      },
     }
   end
 end

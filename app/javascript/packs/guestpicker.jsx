@@ -23,7 +23,7 @@ export default class GuestPicker extends Component {
       position : 1,
       visible: false,
       total_count: 0,
-      adult_count: 0,
+      adult_count: 2,
       child_count: 0
     }
 
@@ -104,8 +104,8 @@ export default class GuestPicker extends Component {
                 onClick = { this.subtractAdult }
                 type="button" 
                 aria-label="subtract"
-                disabled={this.state.adult_count === 0 ? true : false } 
-                className={this.state.adult_count === 0 ? "update__buttons update__buttons-disabled" : "update__buttons"}>
+                disabled={this.state.adult_count === 2 ? true : false } 
+                className={this.state.adult_count === 2 ? "update__buttons update__buttons-disabled" : "update__buttons"}>
                 <span>
                   <svg className="update__buttons-minus" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" >
                     <path d="m2 16h28"></path>
@@ -176,18 +176,14 @@ export default class GuestPicker extends Component {
   }
 }
 
-
-document.addEventListener('turbolinks:load', () => {
-  if(width > 950){
-    ReactDOM.render(
-      <GuestPicker />,
-       document.querySelectorAll("#guestpicker")[1].appendChild(document.createElement('div'))
-    )
-  } else {
-    ReactDOM.render(
-      <GuestPicker />,
-      document.querySelectorAll("#guestpicker")[0].appendChild(document.createElement('div'))
-    )
-  }
-});
-
+if(width > 950){
+  ReactDOM.render(
+    <GuestPicker />,
+     document.querySelectorAll("#guestpicker")[1].appendChild(document.createElement('div'))
+  )
+} else {
+  ReactDOM.render(
+    <GuestPicker />,
+    document.querySelectorAll("#guestpicker")[0].appendChild(document.createElement('div'))
+  )
+}

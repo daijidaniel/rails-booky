@@ -43,7 +43,7 @@
       .offer__content-offers.has-mt-36
         .columns.is-multiline
           - Unit.all.each do |unit|
-            = link_to unit_path(id: unit.slug), class: "column is-half mt-5" do
+            = link_to unit_path(id: unit.slug), class: "column is-half mt-5", data: { turbolinks: false } do
               .card.rounded
                 .card-image
                   figure.image.is-16by9

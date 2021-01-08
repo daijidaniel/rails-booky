@@ -3,3 +3,14 @@ pl:
     address: Adres
     billing_address: Wprowadź dane do rozliczenia
     save_and_continue: Zapisz i kontynuuj
+    faktura_required: Enter NIP number if faktura is required
+    first_name: First name
+    last_name: Last name
+    address_1: Address line 1
+    address_2: Address line 2
+    postcode: Postcode
+    city: City
+    voivodeship: Voivodeship
+    country: Country
+    nip: NIP
+    phone: Phone

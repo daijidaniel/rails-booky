@@ -4,3 +4,14 @@ en:
     billing_address: Enter your billing address
     save_and_continue: Save and continue
     faktura_required: Enter NIP number if faktura is required
+    first_name: First name
+    last_name: Last name
+    address_1: Address line 1
+    address_2: Address line 2
+    postcode: Postcode
+    city: City
+    voivodeship: Voivodeship
+    country: Country
+    nip: NIP
+    phone: Phone
+

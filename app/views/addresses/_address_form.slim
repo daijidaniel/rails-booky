@@ -1,38 +1,57 @@
 - i18n_scope = "addresses/index"
 
 .card.p-5
-  = form_with model: current_user.address, url: addresses_path, method: :post do |f|
-    .field
-      .control
-        = f.label :line1, class: "label"
-        = f.text_field :line1, class: "input", required: true
-    .field
-      .control
-        = f.label :line2, class: "label"
-        = f.text_field :line2, class: "input", required: true
-    .field
-      .control
-        = f.label :country, class: "label"
-        = f.text_field :country, class: "input", value: "Poland", disabled: true
-    .field
-      .control
-        = f.label :city, class: "label"
-        .select
-          = f.select :city, options_for_select(%i[wielkopolskie kujawsko-pomorskie małopolskie łódzkie dolnośląskie lubelskie lubuskie mazowieckie opolskie podlaskie pomorskie śląskie podkarpackie świętokrzyskie warmińsko-mazurskie zachodniopomorskie].map(&:capitalize)), {}, class: "input select", required: true
-    .field
-      .control
-        = f.label :postcode, class: "label"
-        = f.text_field :postcode, class: "input", required: true
-    .field
-      .control
-        = f.label :phone, class: "label"
-        = f.text_field :phone, class: "input", required: true
-    .field
-      .control
-        = f.label :nip, class: "label"
-        = f.text_field :vat_id, class: "input"
-        p.help = t 'faktura_required', scope: i18n_scope
-
+  = form_with model: current_user, url: addresses_path, method: :post do |f|
+    .columns
+      .column
+        .field
+          .control
+            = f.label :first_name, t("first_name", scope: i18n_scope), class: "label"
+            = f.text_field :fname, class: "input", required: true
+      .column
+        .field
+          .control
+            = f.label :last_name, t("last_name", scope: i18n_scope), class: "label"
+            = f.text_field :lname, class: "input", required: true
+    = fields_for current_user.address || current_user.build_address do |af|
+      .field
+        .control
+          = af.label :address_line_1, t("address_1", scope: i18n_scope), class: "label"
+          = af.text_field :line1, class: "input", required: true
+      .field
+        .control
+          = af.label :address_line_2, t("address_2", scope: i18n_scope), class: "label"
+          = af.text_field :line2, class: "input", required: true
+      .field
+        .control
+          = af.label :postcode, t("postcode", scope: i18n_scope), class: "label"
+          = af.text_field :postcode, class: "input", required: true
+      .columns
+        .column
+          .field
+            .control
+              = af.label :city, t("city", scope: i18n_scope), class: "label"
+              = af.text_field :city, class: "input", required: true
+        .column
+          .field
+            .control
+              = af.label :voivodeship, t("voivodeship", scope: i18n_scope), class: "label"
+              .select.is-fullwidth
+                = af.select :state, options_for_select(%i[wielkopolskie kujawsko-pomorskie małopolskie łódzkie dolnośląskie lubelskie lubuskie mazowieckie opolskie podlaskie pomorskie śląskie podkarpackie świętokrzyskie warmińsko-mazurskie zachodniopomorskie].map(&:capitalize)), {}, class: "input select", required: true
+      .field
+        .control
+          = af.label :country, t("country", scope: i18n_scope), class: "label"
+          = af.text_field :country, class: "input", value: "Poland", disabled: true
+      .field
+        .control
+          = af.label :nip, t("nip", scope: i18n_scope), class: "label"
+          = af.text_field :vat_id, class: "input"
+          p.help = t 'faktura_required', scope: i18n_scope
+      .field
+        = af.label :phone, t("phone", scope: i18n_scope), class: "label"
+        .field.has-addons
+          .control
+            a.button.is-static +48
+          .control
+          = af.text_field :phone, value: af.object.phone.phony_normalized.gsub("+48", ""), class: "input", required: true
     = f.submit t('save_and_continue', scope: i18n_scope), class: "button is-fullwidth is-primary mt-5"
-
-  

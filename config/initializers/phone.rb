@@ -1,1 +1,1 @@
-PhonyRails.default_country_code = "US"
+PhonyRails.default_country_code = "PL"
