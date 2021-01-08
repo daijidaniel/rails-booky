@@ -78,7 +78,7 @@ $primary: map-get($booking, 'green-100');
 $link: map-get($booking, 'green-100');
 $info: map-get($booking, 'blue-pop-80');
 $success: map-get($booking, 'green-80');
-$warning: map-get($booking, 'tangerine-80');
+// $warning: map-get($booking, 'tangerine-80');
 $danger: map-get($booking, 'red-80');
 
 @each $color in gray, red, green, blue, purple {

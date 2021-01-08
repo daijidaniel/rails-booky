@@ -35,7 +35,7 @@
   }
 }
 
-@each $i in 0, 3, 4, 6, 9 {
+@each $i in 9 {
   .has-radius-#{$i} { border-radius: #{$i}px; }
 
   .has-radius-bottom-#{$i} {
@@ -49,7 +49,7 @@
   }
 }
 
-@each $i in 3, 4, 5, 6, 9, 12, 18, 24, 36, 48, 60, 72, 96, 120, 180, 240, 0 {
+@each $i in 3, 4, 5, 6, 9, 12 {
   .has-pb-#{$i} { padding-bottom: #{$i}px !important; }
   .has-pt-#{$i} { padding-top: #{$i}px !important; }
   .has-pr-#{$i} { padding-right: #{$i}px !important; }
@@ -62,54 +62,10 @@
   .has-margin-#{$i} { margin: #{$i}px !important; }
 }
 
-@each $i in 3, 4, 5, 6, 9, 12, 18, 24, 36, 48, 60, 72, 96, 120, 180, 240, 0 {
-  @include mobile {
-    .has-pb-#{$i}-mobile { padding-bottom: #{$i}px !important; }
-    .has-pt-#{$i}-mobile { padding-top: #{$i}px !important; }
-    .has-pr-#{$i}-mobile { padding-right: #{$i}px !important; }
-    .has-pl-#{$i}-mobile { padding-left: #{$i}px !important; }
-    .has-padding-#{$i}-mobile { padding: #{$i}px !important; }
-    .has-mb-#{$i}-mobile { margin-bottom: #{$i}px !important; }
-    .has-mt-#{$i}-mobile { margin-top: #{$i}px !important; }
-    .has-mr-#{$i}-mobile { margin-right: #{$i}px !important; }
-    .has-ml-#{$i}-mobile { margin-left: #{$i}px !important; }
-    .has-margin-#{$i}-mobile { margin: #{$i}px !important; }
-  }
-}
-
-@each $i in 3, 4, 5, 6, 9, 12, 18, 24, 36, 48, 60, 72, 96, 120, 180, 240, 0 {
-  @include tablet {
-    .has-pb-#{$i}-tablet { padding-bottom: #{$i}px !important; }
-    .has-pt-#{$i}-tablet { padding-top: #{$i}px !important; }
-    .has-pr-#{$i}-tablet { padding-right: #{$i}px !important; }
-    .has-pl-#{$i}-tablet { padding-left: #{$i}px !important; }
-    .has-padding-#{$i}-tablet { padding: #{$i}px !important; }
-    .has-mb-#{$i}-tablet { margin-bottom: #{$i}px !important; }
-    .has-mt-#{$i}-tablet { margin-top: #{$i}px !important; }
-    .has-mr-#{$i}-tablet { margin-right: #{$i}px !important; }
-    .has-ml-#{$i}-tablet { margin-left: #{$i}px !important; }
-    .has-margin-#{$i}-tablet { margin: #{$i}px !important; }
-  }
-}
-
-@each $i in 3, 4, 5, 6, 9, 12, 18, 24, 36, 48, 60, 72, 96, 120, 180, 240, 0 {
-  @include touch {
-    .has-pb-#{$i}-touch { padding-bottom: #{$i}px !important; }
-    .has-pt-#{$i}-touch { padding-top: #{$i}px !important; }
-    .has-pr-#{$i}-touch { padding-right: #{$i}px !important; }
-    .has-pl-#{$i}-touch { padding-left: #{$i}px !important; }
-    .has-padding-#{$i}-touch { padding: #{$i}px !important; }
-    .has-mb-#{$i}-touch { margin-bottom: #{$i}px !important; }
-    .has-mt-#{$i}-touch { margin-top: #{$i}px !important; }
-    .has-mr-#{$i}-touch { margin-right: #{$i}px !important; }
-    .has-ml-#{$i}-touch { margin-left: #{$i}px !important; }
-    .has-margin-#{$i}-touch { margin: #{$i}px !important; }
-  }
-}
-
 .has-no-margin {
   margin: 0 !important;
 }
+
 .is-borderless {
   border: 0;
 }
