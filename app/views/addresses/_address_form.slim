@@ -53,5 +53,5 @@
           .control
             a.button.is-static +48
           .control
-          = af.text_field :phone, value: af.object.phone.phony_normalized.gsub("+48", ""), class: "input", required: true
+          = af.text_field :phone, value: '' || af.object.phone.phony_normalized.gsub("+48", ""), class: "input", required: true
     = f.submit t('save_and_continue', scope: i18n_scope), class: "button is-fullwidth is-primary mt-5"
