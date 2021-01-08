@@ -1,7 +1,7 @@
 <div class="session__login">
   <div class="container">
     <div class="card p-5">
-      <h2 class="title">Sign up</h2>
+      <h2 class="title">Sign up to book now!</h2>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
@@ -32,6 +32,13 @@
         <div class="field">
           <%= f.label :password_confirmation %><br />
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input" %>
+        </div>
+
+        <div class="field">
+          <%= label :privacy_policy, {} do %>
+            <%= check_box :privacy_policy, style: "margin-right: 8px;", required: true %>
+            <%= t('accept_privacy_policy').html_safe %>
+          <% end %>
         </div>
 
         <div class="actions">

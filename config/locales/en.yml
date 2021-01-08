@@ -16,8 +16,8 @@ en:
     phone: Phone number
     message: Message
     submit: Submit
-    privacy_policy: "  I agree to the processing of personal data provided according to <a href='#'> Privacy Policy</a>"
-    tos_accept: "  I’ve read and fully accept the <a href='#'> Terms of service </a>"
+    privacy_policy: "  I agree to the processing of personal data provided according to <a href='privacy-policy'> Privacy Policy</a>"
+    tos_accept: "  I’ve read and fully accept the <a href='/terms-of-service'> Terms of service </a>"
     products: Products
     intouch: Let’s get in touch
     b2b: B2B events

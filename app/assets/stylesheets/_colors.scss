@@ -74,8 +74,8 @@ $booking: (
 );
 
 $primarybackground: #FBFBFB;
-$primary: map-get($booking, 'purple-100');
-$link: map-get($booking, 'purple-100');
+$primary: map-get($booking, 'green-100');
+$link: map-get($booking, 'green-100');
 $info: map-get($booking, 'blue-pop-80');
 $success: map-get($booking, 'green-80');
 $warning: map-get($booking, 'tangerine-80');

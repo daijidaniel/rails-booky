@@ -1,7 +1,11 @@
 # Additional translations at https://github.com/heartcombo/devise/wiki/I18n
 
 en:
+  accept_privacy_policy: I accept <a href='/privacy-policy'>Privacy Policy</a>
   devise:
+    login: Already have an account?
+    sign_up: Don't have an account?
+    forgot: Forgot your password?
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
